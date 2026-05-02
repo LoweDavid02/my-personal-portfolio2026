@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { useEffect, useState } from 'react';
-import profileImage from '../assets/Lowe.png';
+import { Download, Briefcase } from 'lucide-react';
+import profileImage from '../assets/lowe1.png';
 
 const About = () => {
   const [ref, inView] = useInView({
@@ -9,137 +9,179 @@ const About = () => {
     threshold: 0.2,
   });
 
-  const stats = [
-    { label: 'Years Experience', value: 3, suffix: '+' },
-    { label: 'Projects Completed', value: 15, suffix: '+' },
-    { label: 'Platforms', value: 2, suffix: '' },
-  ];
-
-  const AnimatedCounter = ({ end, suffix, inView }) => {
-    const [count, setCount] = useState(0);
-
-    useEffect(() => {
-      if (!inView) return;
-
-      let start = 0;
-      const duration = 2000;
-      const increment = end / (duration / 16);
-
-      const timer = setInterval(() => {
-        start += increment;
-        if (start >= end) {
-          setCount(end);
-          clearInterval(timer);
-        } else {
-          setCount(Math.floor(start));
-        }
-      }, 16);
-
-      return () => clearInterval(timer);
-    }, [end, inView]);
-
-    return (
-      <span className="text-4xl font-bold text-gradient-cyan-violet">
-        {count}{suffix}
-      </span>
-    );
-  };
-
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 relative">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 40 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+    <section
+      id="about"
+      ref={ref}
+      style={{
+        padding: '5rem 1.5rem',
+        backgroundColor: '#ffffff',
+      }}
+    >
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr',
+            gap: '4rem',
+            alignItems: 'center',
+          }}
+          className="lg:grid-cols-2"
         >
-          {/* Section Label */}
-          <div className="font-dm-mono text-accent-cyan text-sm mb-8">
-            // 01 — ABOUT ME
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left - Profile Photo */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative"
+          {/* Left - Profile Image */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6 }}
+          >
+            <div
+              style={{
+                position: 'relative',
+                borderRadius: '1rem',
+                overflow: 'hidden',
+                boxShadow: '0 20px 25px rgba(0, 0, 0, 0.15)',
+              }}
             >
-              <div className="glass rounded-2xl p-8 border-2 border-accent-cyan/30 glow-cyan relative overflow-hidden group">
-                {/* Decorative corner brackets */}
-                <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-accent-cyan"></div>
-                <div className="absolute top-4 right-4 w-8 h-8 border-t-2 border-r-2 border-accent-cyan"></div>
-                <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-accent-cyan"></div>
-                <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-accent-cyan"></div>
+              <img
+                src={profileImage}
+                alt="Lowe David"
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  display: 'block',
+                }}
+              />
+            </div>
+          </motion.div>
 
-                {/* Profile Image */}
-                <div className="aspect-square rounded-xl flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-accent-cyan/10 to-accent-violet/10 animate-gradient-shift"></div>
-                  <img 
-                    src={profileImage} 
-                    alt="Lowe David Profile" 
-                    className="relative z-10 w-full h-full object-cover rounded-xl"
-                  />
-                  
-                  {/* Glowing ring */}
-                  <div className="absolute inset-0 border-4 border-accent-cyan/30 rounded-xl animate-pulse-glow"></div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Right - Bio Text */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="space-y-6"
+          {/* Right - Content */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <h2
+              style={{
+                fontSize: 'clamp(2rem, 5vw, 3rem)',
+                fontWeight: '800',
+                fontFamily: 'Poppins, sans-serif',
+                marginBottom: '1.5rem',
+                lineHeight: '1.2',
+              }}
             >
-              <h2 className="font-syne font-bold text-4xl sm:text-5xl text-text-primary">
-                Crafting Digital <span className="text-gradient-cyan-violet">Experiences</span>
-              </h2>
+              I am Professional{' '}
+              <span
+                style={{
+                  background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              >
+                Full-Stack Developer
+              </span>
+            </h2>
 
-              <div className="space-y-4 text-text-muted font-dm-sans text-lg leading-relaxed">
-                <p>
-                  I'm a passionate full-stack developer with expertise in building scalable web
-                  applications and cross-platform mobile apps. I thrive at the intersection of
-                  clean code and elegant design, delivering real-time, high-performance solutions
-                  end-to-end.
-                </p>
-                <p>
-                  When I'm not coding, I'm exploring new technologies, contributing to open source,
-                  or sketching UI concepts in Figma.
-                </p>
-              </div>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1.25rem',
+                marginBottom: '2rem',
+              }}
+            >
+              <p
+                style={{
+                  fontSize: '1.125rem',
+                  color: '#6c757d',
+                  lineHeight: '1.8',
+                }}
+              >
+                I design and develop services for customers specializing in creating stylish, modern websites, web services and online stores. My passion is to design digital user experiences through carefully crafted code and user-centric design.
+              </p>
 
-              {/* Stats Cards */}
-              <div className="grid grid-cols-3 gap-4 pt-6">
-                {stats.map((stat, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={inView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                    className="glass rounded-lg p-4 border-l-2 border-accent-cyan hover:border-accent-violet transition-all duration-300 hover:scale-105"
-                  >
-                    <div className="text-center">
-                      <AnimatedCounter
-                        end={stat.value}
-                        suffix={stat.suffix}
-                        inView={inView}
-                      />
-                      <div className="text-xs text-text-muted font-dm-mono mt-2">
-                        {stat.label}
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
+              <p
+                style={{
+                  fontSize: '1.125rem',
+                  color: '#6c757d',
+                  lineHeight: '1.8',
+                }}
+              >
+                I specialize in Laravel, Vue.js, React, and modern web technologies to build scalable, high-performance applications that deliver real value to users and businesses.
+              </p>
+            </div>
+
+            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+              <a
+                href="#projects"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  padding: '0.875rem 1.75rem',
+                  backgroundColor: '#6366f1',
+                  color: 'white',
+                  fontWeight: '600',
+                  borderRadius: '0.5rem',
+                  textDecoration: 'none',
+                  transition: 'all 0.3s',
+                  boxShadow: '0 4px 6px rgba(99, 102, 241, 0.3)',
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = '#8b5cf6';
+                  e.target.style.transform = 'translateY(-2px)';
+                  e.target.style.boxShadow = '0 10px 15px rgba(99, 102, 241, 0.4)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.backgroundColor = '#6366f1';
+                  e.target.style.transform = 'translateY(0)';
+                  e.target.style.boxShadow = '0 4px 6px rgba(99, 102, 241, 0.3)';
+                }}
+              >
+                <Briefcase size={20} />
+                My Projects
+              </a>
+
+              <a
+                href="/cv.pdf"
+                download
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  padding: '0.875rem 1.75rem',
+                  backgroundColor: 'transparent',
+                  color: '#6366f1',
+                  fontWeight: '600',
+                  border: '2px solid #6366f1',
+                  borderRadius: '0.5rem',
+                  textDecoration: 'none',
+                  transition: 'all 0.3s',
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = '#6366f1';
+                  e.target.style.color = 'white';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.backgroundColor = 'transparent';
+                  e.target.style.color = '#6366f1';
+                }}
+              >
+                <Download size={20} />
+                Download CV
+              </a>
+            </div>
+          </motion.div>
+        </div>
       </div>
+
+      <style>{`
+        @media (min-width: 1024px) {
+          .lg\\:grid-cols-2 {
+            grid-template-columns: 1fr 1fr !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };

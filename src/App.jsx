@@ -1,4 +1,3 @@
-import CustomCursor from './components/CustomCursor';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -10,8 +9,7 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen bg-bg-primary text-text-primary">
-      <CustomCursor />
+    <div className="min-h-screen text-text-primary" style={{ backgroundColor: '#0b0f14' }}>
       <Navbar />
       <main>
         <Hero />

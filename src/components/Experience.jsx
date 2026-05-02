@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { Briefcase, Calendar } from 'lucide-react';
 
 const Experience = () => {
   const [ref, inView] = useInView({
@@ -12,130 +13,237 @@ const Experience = () => {
       period: '2023 – Present',
       role: 'Full-Stack Developer',
       company: 'Freelance / Remote',
+      description:
+        'Leading full-stack development projects for various clients, specializing in Laravel and React ecosystems. Building scalable web applications with real-time features and modern UI/UX.',
       responsibilities: [
-        'Built and deployed full-stack web apps using Laravel + React.js with real-time features via Laravel Reverb.',
-        'Developed cross-platform mobile apps using React Native and Convex backend.',
-        'Managed deployments on Render and maintained CI/CD pipelines via GitHub.',
+        'Built and deployed full-stack web apps using Laravel + React.js with real-time features via Laravel Reverb',
+        'Developed cross-platform mobile apps using React Native and Convex backend',
+        'Managed deployments on Render and maintained CI/CD pipelines via GitHub',
+        'Collaborated with clients to define project requirements and deliver solutions',
       ],
-      tags: ['Laravel', 'React.js', 'React Native', 'PostgreSQL', 'Convex', 'Render'],
+      tags: ['Laravel', 'React.js', 'React Native', 'PostgreSQL', 'Convex'],
     },
     {
       period: '2022 – 2023',
       role: 'Junior Web Developer',
       company: 'Tech Solutions Inc.',
+      description:
+        'Contributed to the development of enterprise web applications and e-commerce platforms. Worked closely with senior developers to implement features and optimize performance.',
       responsibilities: [
-        'Developed RESTful APIs with Laravel and integrated React.js frontends.',
-        'Collaborated on PostgreSQL database design and optimization.',
-        'Implemented responsive UI components using Tailwind CSS.',
+        'Developed RESTful APIs with Laravel and integrated React.js frontends',
+        'Collaborated on PostgreSQL database design and optimization',
+        'Implemented responsive UI components using Tailwind CSS',
+        'Participated in code reviews and agile development processes',
       ],
       tags: ['Laravel', 'React.js', 'PostgreSQL', 'Tailwind CSS', 'REST API'],
     },
   ];
 
   return (
-    <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8 relative">
-      <div className="max-w-5xl mx-auto">
+    <section
+      id="experience"
+      ref={ref}
+      style={{
+        padding: '5rem 1.5rem',
+        backgroundColor: '#f8f9fa',
+      }}
+    >
+      <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
+        {/* Section Header */}
         <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
+          style={{ textAlign: 'center', marginBottom: '4rem' }}
         >
-          {/* Section Label */}
-          <div className="font-dm-mono text-accent-cyan text-sm mb-8">
-            // 04 — EXPERIENCE
-          </div>
-
-          <h2 className="font-syne font-bold text-4xl sm:text-5xl text-text-primary mb-4">
-            Professional <span className="text-gradient-cyan-violet">Journey</span>
+          <h2
+            style={{
+              fontSize: 'clamp(2rem, 5vw, 3rem)',
+              fontWeight: '800',
+              fontFamily: 'Poppins, sans-serif',
+              marginBottom: '1rem',
+            }}
+          >
+            Work{' '}
+            <span
+              style={{
+                background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              Experience
+            </span>
           </h2>
-
-          <p className="text-text-muted font-dm-sans text-lg mb-12">
-            My career path and the experiences that shaped my expertise.
+          <p
+            style={{
+              fontSize: '1.125rem',
+              color: '#6c757d',
+              maxWidth: '700px',
+              margin: '0 auto',
+              lineHeight: '1.8',
+            }}
+          >
+            My professional journey and the experiences that shaped my expertise in full-stack development.
           </p>
+        </motion.div>
 
-          {/* Timeline */}
-          <div className="relative">
-            {/* Center line - hidden on mobile */}
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gradient-to-b from-accent-cyan via-accent-violet to-accent-cyan"></div>
-
-            {/* Left line - visible on mobile */}
-            <div className="md:hidden absolute left-4 w-0.5 h-full bg-gradient-to-b from-accent-cyan via-accent-violet to-accent-cyan"></div>
-
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -60 : 60 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.3 }}
-                className={`relative mb-12 md:mb-16 ${
-                  index % 2 === 0 ? 'md:pr-[50%] md:text-right' : 'md:pl-[50%] md:text-left'
-                } pl-12 md:pl-0`}
+        {/* Timeline */}
+        <div style={{ position: 'relative' }}>
+          {experiences.map((exp, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              style={{
+                marginBottom: index < experiences.length - 1 ? '3rem' : '0',
+              }}
+            >
+              <div
+                style={{
+                  backgroundColor: 'white',
+                  padding: '2.5rem',
+                  borderRadius: '1rem',
+                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                  transition: 'all 0.3s',
+                  position: 'relative',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-5px)';
+                  e.currentTarget.style.boxShadow = '0 20px 25px rgba(0, 0, 0, 0.15)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+                }}
               >
-                {/* Timeline dot */}
+                {/* Period Badge */}
                 <div
-                  className={`absolute w-4 h-4 bg-accent-cyan rounded-full border-4 border-bg-primary ${
-                    index % 2 === 0
-                      ? 'md:right-[calc(50%-8px)] left-[8px] md:left-auto'
-                      : 'md:left-[calc(50%-8px)] left-[8px]'
-                  } top-0 animate-pulse-glow`}
-                ></div>
-
-                {/* Content Card */}
-                <div
-                  className={`glass rounded-xl p-6 border border-glass-border hover:border-accent-cyan transition-all duration-300 ${
-                    index % 2 === 0 ? 'md:mr-8' : 'md:ml-8'
-                  }`}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    padding: '0.5rem 1rem',
+                    backgroundColor: '#f8f9fa',
+                    borderRadius: '0.5rem',
+                    marginBottom: '1.5rem',
+                  }}
                 >
-                  {/* Period Tag */}
-                  <div
-                    className={`inline-block px-4 py-1 mb-4 text-xs font-dm-mono bg-accent-cyan/10 text-accent-cyan rounded-full border border-accent-cyan/30 ${
-                      index % 2 === 0 ? 'md:float-right md:ml-4' : 'md:float-left md:mr-4'
-                    }`}
+                  <Calendar size={16} color="#6366f1" />
+                  <span
+                    style={{
+                      fontSize: '0.875rem',
+                      fontWeight: '600',
+                      color: '#6366f1',
+                    }}
                   >
                     {exp.period}
-                  </div>
+                  </span>
+                </div>
 
-                  {/* Role & Company */}
-                  <h3 className="font-syne font-bold text-2xl text-text-primary mb-2 clear-both">
+                {/* Role & Company */}
+                <div style={{ marginBottom: '1.5rem' }}>
+                  <h3
+                    style={{
+                      fontSize: '1.75rem',
+                      fontWeight: '700',
+                      fontFamily: 'Poppins, sans-serif',
+                      color: '#1a1a1a',
+                      marginBottom: '0.5rem',
+                    }}
+                  >
                     {exp.role}
                   </h3>
-                  <p className="text-accent-cyan font-dm-sans mb-4">{exp.company}</p>
-
-                  {/* Responsibilities */}
-                  <ul
-                    className={`space-y-2 mb-4 text-text-muted font-dm-sans text-sm ${
-                      index % 2 === 0 ? 'md:text-right' : 'md:text-left'
-                    } text-left`}
-                  >
-                    {exp.responsibilities.map((resp, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="text-accent-cyan mt-1 flex-shrink-0">▹</span>
-                        <span>{resp}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Tech Tags */}
                   <div
-                    className={`flex flex-wrap gap-2 ${
-                      index % 2 === 0 ? 'md:justify-end' : 'md:justify-start'
-                    } justify-start`}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.5rem',
+                      color: '#6366f1',
+                      fontSize: '1.125rem',
+                      fontWeight: '600',
+                    }}
                   >
-                    {exp.tags.map((tag, i) => (
-                      <span
-                        key={i}
-                        className="px-2 py-1 text-xs font-dm-mono bg-bg-secondary text-text-muted rounded border border-glass-border"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                    <Briefcase size={18} />
+                    {exp.company}
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+
+                {/* Description */}
+                <p
+                  style={{
+                    fontSize: '1rem',
+                    color: '#6c757d',
+                    lineHeight: '1.7',
+                    marginBottom: '1.5rem',
+                  }}
+                >
+                  {exp.description}
+                </p>
+
+                {/* Responsibilities */}
+                <ul
+                  style={{
+                    listStyle: 'none',
+                    padding: '0',
+                    margin: '0 0 1.5rem 0',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '0.75rem',
+                  }}
+                >
+                  {exp.responsibilities.map((resp, i) => (
+                    <li
+                      key={i}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        gap: '0.75rem',
+                        fontSize: '0.9375rem',
+                        color: '#6c757d',
+                        lineHeight: '1.6',
+                      }}
+                    >
+                      <span
+                        style={{
+                          width: '6px',
+                          height: '6px',
+                          backgroundColor: '#6366f1',
+                          borderRadius: '50%',
+                          marginTop: '0.5rem',
+                          flexShrink: 0,
+                        }}
+                      ></span>
+                      <span>{resp}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Tags */}
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                  {exp.tags.map((tag, i) => (
+                    <span
+                      key={i}
+                      style={{
+                        padding: '0.375rem 0.875rem',
+                        fontSize: '0.8125rem',
+                        fontWeight: '500',
+                        backgroundColor: '#f8f9fa',
+                        color: '#6366f1',
+                        borderRadius: '0.375rem',
+                        border: '1px solid #e9ecef',
+                      }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Mail, Send } from 'lucide-react';
+import { Mail, MapPin, Phone, Send } from 'lucide-react';
 
 const Contact = () => {
   const [ref, inView] = useInView({
@@ -10,207 +10,402 @@ const Contact = () => {
 
   const contactInfo = [
     {
+      icon: MapPin,
+      label: 'Address',
+      value: 'Philippines',
+    },
+    {
       icon: Mail,
-      label: 'Email',
+      label: 'My Email',
       value: 'your.email@example.com',
       href: 'mailto:your.email@example.com',
     },
     {
-      icon: Mail,
-      label: 'GitHub',
-      value: 'github.com/LoweDavid02',
-      href: 'https://github.com/LoweDavid02',
-    },
-    {
-      icon: Mail,
-      label: 'LinkedIn',
-      value: 'linkedin.com/in/yourprofile',
-      href: 'https://linkedin.com/in/yourprofile',
+      icon: Phone,
+      label: 'Call Me Now',
+      value: '+63 123 456 7890',
+      href: 'tel:+631234567890',
     },
   ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Form submission logic would go here
-    alert('This is a UI-only form. Connect it to your backend to enable submissions.');
+    alert('Thank you for your message! I will get back to you soon.');
   };
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 relative">
-      <div className="max-w-7xl mx-auto">
+    <section
+      id="contact"
+      ref={ref}
+      style={{
+        padding: '5rem 1.5rem',
+        backgroundColor: '#ffffff',
+      }}
+    >
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        {/* Section Header */}
         <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
+          style={{ textAlign: 'center', marginBottom: '4rem' }}
         >
-          {/* Section Label */}
-          <div className="font-dm-mono text-accent-cyan text-sm mb-8">
-            // 05 — GET IN TOUCH
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Left Column */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-8"
+          <h2
+            style={{
+              fontSize: 'clamp(2rem, 5vw, 3rem)',
+              fontWeight: '800',
+              fontFamily: 'Poppins, sans-serif',
+              marginBottom: '1rem',
+            }}
+          >
+            Let's Discuss Your{' '}
+            <span
+              style={{
+                background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
             >
-              <h2 className="font-syne font-bold text-4xl sm:text-5xl text-text-primary leading-tight">
-                Let's build something{' '}
-                <span className="text-gradient-cyan-violet">remarkable</span> together.
-              </h2>
+              Project
+            </span>
+          </h2>
+          <p
+            style={{
+              fontSize: '1.125rem',
+              color: '#6c757d',
+              maxWidth: '700px',
+              margin: '0 auto',
+              lineHeight: '1.8',
+            }}
+          >
+            I'm always open to discussing product design work or partnership opportunities.
+          </p>
+        </motion.div>
 
-              <p className="text-text-muted font-dm-sans text-lg">
-                I'm always open to discussing new projects, creative ideas, or opportunities to
-                be part of your vision.
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr',
+            gap: '3rem',
+            alignItems: 'start',
+          }}
+          className="lg:grid-cols-5"
+        >
+          {/* Left - Contact Info */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}
+            className="lg:col-span-2"
+          >
+            <div>
+              <h3
+                style={{
+                  fontSize: '1.5rem',
+                  fontWeight: '700',
+                  fontFamily: 'Poppins, sans-serif',
+                  marginBottom: '1rem',
+                }}
+              >
+                I'm available for freelance work
+              </h3>
+              <p
+                style={{
+                  fontSize: '1rem',
+                  color: '#6c757d',
+                  lineHeight: '1.7',
+                }}
+              >
+                Drop me a line if you have a project you think I'd be a good fit for.
               </p>
+            </div>
 
-              {/* Contact Info Cards */}
-              <div className="space-y-4">
-                {contactInfo.map((info, index) => (
-                  <motion.a
-                    key={index}
-                    href={info.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={inView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                    className="glass rounded-lg p-4 flex items-center gap-4 border border-glass-border hover:border-accent-cyan transition-all duration-300 hover:scale-105 group"
+            {contactInfo.map((info, index) => (
+              <div key={index}>
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    gap: '1rem',
+                  }}
+                >
+                  <div
+                    style={{
+                      width: '48px',
+                      height: '48px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
+                      borderRadius: '0.75rem',
+                      flexShrink: 0,
+                    }}
                   >
-                    <div className="w-12 h-12 bg-gradient-to-br from-accent-cyan/20 to-accent-violet/20 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <info.icon className="text-accent-cyan" size={20} />
-                    </div>
-                    <div>
-                      <div className="text-xs font-dm-mono text-text-muted">{info.label}</div>
-                      <div className="text-sm font-dm-sans text-text-primary group-hover:text-accent-cyan transition-colors">
+                    <info.icon size={24} color="white" />
+                  </div>
+                  <div>
+                    <p
+                      style={{
+                        fontSize: '0.875rem',
+                        fontWeight: '600',
+                        color: '#1a1a1a',
+                        marginBottom: '0.25rem',
+                      }}
+                    >
+                      {info.label}:
+                    </p>
+                    {info.href ? (
+                      <a
+                        href={info.href}
+                        style={{
+                          fontSize: '1rem',
+                          color: '#6c757d',
+                          textDecoration: 'none',
+                          transition: 'color 0.3s',
+                        }}
+                        onMouseEnter={(e) => {
+                          e.target.style.color = '#6366f1';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.target.style.color = '#6c757d';
+                        }}
+                      >
                         {info.value}
-                      </div>
-                    </div>
-                  </motion.a>
-                ))}
+                      </a>
+                    ) : (
+                      <p style={{ fontSize: '1rem', color: '#6c757d' }}>{info.value}</p>
+                    )}
+                  </div>
+                </div>
               </div>
+            ))}
+          </motion.div>
 
-              {/* Social Links */}
-              <div className="flex gap-4 pt-4">
-                <a
-                  href="https://github.com/LoweDavid02"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 glass rounded-lg flex items-center justify-center text-accent-cyan hover:bg-accent-cyan hover:text-bg-primary transition-all duration-300 hover:scale-110 glow-cyan"
-                  aria-label="GitHub"
-                >
-                  <Mail size={20} />
-                </a>
-                <a
-                  href="https://linkedin.com/in/yourprofile"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 glass rounded-lg flex items-center justify-center text-accent-cyan hover:bg-accent-cyan hover:text-bg-primary transition-all duration-300 hover:scale-110 glow-cyan"
-                  aria-label="LinkedIn"
-                >
-                  <Mail size={20} />
-                </a>
-                <a
-                  href="mailto:your.email@example.com"
-                  className="w-12 h-12 glass rounded-lg flex items-center justify-center text-accent-cyan hover:bg-accent-cyan hover:text-bg-primary transition-all duration-300 hover:scale-110 glow-cyan"
-                  aria-label="Email"
-                >
-                  <Mail size={20} />
-                </a>
-              </div>
-            </motion.div>
-
-            {/* Right Column - Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              animate={inView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 }}
+          {/* Right - Contact Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="lg:col-span-3"
+          >
+            <form
+              onSubmit={handleSubmit}
+              style={{
+                backgroundColor: '#f8f9fa',
+                padding: '2.5rem',
+                borderRadius: '1rem',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1.5rem',
+              }}
             >
-              <form onSubmit={handleSubmit} className="glass rounded-2xl p-8 border border-glass-border space-y-6">
-                {/* Name Field */}
-                <div className="relative">
-                  <input
-                    type="text"
-                    id="name"
-                    placeholder=" "
-                    required
-                    className="w-full px-4 py-3 bg-bg-secondary border border-glass-border rounded-lg text-text-primary font-dm-sans focus:border-accent-cyan focus:outline-none focus:ring-2 focus:ring-accent-cyan/20 transition-all peer"
-                  />
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr',
+                  gap: '1.5rem',
+                }}
+                className="md:grid-cols-2"
+              >
+                <div>
                   <label
                     htmlFor="name"
-                    className="absolute left-4 top-3 text-text-muted font-dm-sans text-sm transition-all peer-focus:-top-6 peer-focus:text-accent-cyan peer-focus:text-xs peer-[:not(:placeholder-shown)]:-top-6 peer-[:not(:placeholder-shown)]:text-accent-cyan peer-[:not(:placeholder-shown)]:text-xs"
+                    style={{
+                      display: 'block',
+                      fontSize: '0.875rem',
+                      fontWeight: '600',
+                      color: '#1a1a1a',
+                      marginBottom: '0.5rem',
+                    }}
                   >
                     Your Name
                   </label>
+                  <input
+                    type="text"
+                    id="name"
+                    required
+                    style={{
+                      width: '100%',
+                      padding: '0.875rem',
+                      backgroundColor: 'white',
+                      border: '1px solid #e9ecef',
+                      borderRadius: '0.5rem',
+                      fontSize: '1rem',
+                      transition: 'border-color 0.3s',
+                    }}
+                    onFocus={(e) => {
+                      e.target.style.borderColor = '#6366f1';
+                    }}
+                    onBlur={(e) => {
+                      e.target.style.borderColor = '#e9ecef';
+                    }}
+                  />
                 </div>
 
-                {/* Email Field */}
-                <div className="relative">
-                  <input
-                    type="email"
-                    id="email"
-                    placeholder=" "
-                    required
-                    className="w-full px-4 py-3 bg-bg-secondary border border-glass-border rounded-lg text-text-primary font-dm-sans focus:border-accent-cyan focus:outline-none focus:ring-2 focus:ring-accent-cyan/20 transition-all peer"
-                  />
+                <div>
                   <label
                     htmlFor="email"
-                    className="absolute left-4 top-3 text-text-muted font-dm-sans text-sm transition-all peer-focus:-top-6 peer-focus:text-accent-cyan peer-focus:text-xs peer-[:not(:placeholder-shown)]:-top-6 peer-[:not(:placeholder-shown)]:text-accent-cyan peer-[:not(:placeholder-shown)]:text-xs"
+                    style={{
+                      display: 'block',
+                      fontSize: '0.875rem',
+                      fontWeight: '600',
+                      color: '#1a1a1a',
+                      marginBottom: '0.5rem',
+                    }}
                   >
                     Your Email
                   </label>
-                </div>
-
-                {/* Subject Field */}
-                <div className="relative">
                   <input
-                    type="text"
-                    id="subject"
-                    placeholder=" "
+                    type="email"
+                    id="email"
                     required
-                    className="w-full px-4 py-3 bg-bg-secondary border border-glass-border rounded-lg text-text-primary font-dm-sans focus:border-accent-cyan focus:outline-none focus:ring-2 focus:ring-accent-cyan/20 transition-all peer"
+                    style={{
+                      width: '100%',
+                      padding: '0.875rem',
+                      backgroundColor: 'white',
+                      border: '1px solid #e9ecef',
+                      borderRadius: '0.5rem',
+                      fontSize: '1rem',
+                      transition: 'border-color 0.3s',
+                    }}
+                    onFocus={(e) => {
+                      e.target.style.borderColor = '#6366f1';
+                    }}
+                    onBlur={(e) => {
+                      e.target.style.borderColor = '#e9ecef';
+                    }}
                   />
-                  <label
-                    htmlFor="subject"
-                    className="absolute left-4 top-3 text-text-muted font-dm-sans text-sm transition-all peer-focus:-top-6 peer-focus:text-accent-cyan peer-focus:text-xs peer-[:not(:placeholder-shown)]:-top-6 peer-[:not(:placeholder-shown)]:text-accent-cyan peer-[:not(:placeholder-shown)]:text-xs"
-                  >
-                    Subject
-                  </label>
                 </div>
+              </div>
 
-                {/* Message Field */}
-                <div className="relative">
-                  <textarea
-                    id="message"
-                    placeholder=" "
-                    required
-                    rows="5"
-                    className="w-full px-4 py-3 bg-bg-secondary border border-glass-border rounded-lg text-text-primary font-dm-sans focus:border-accent-cyan focus:outline-none focus:ring-2 focus:ring-accent-cyan/20 transition-all resize-none peer"
-                  ></textarea>
-                  <label
-                    htmlFor="message"
-                    className="absolute left-4 top-3 text-text-muted font-dm-sans text-sm transition-all peer-focus:-top-6 peer-focus:text-accent-cyan peer-focus:text-xs peer-[:not(:placeholder-shown)]:-top-6 peer-[:not(:placeholder-shown)]:text-accent-cyan peer-[:not(:placeholder-shown)]:text-xs"
-                  >
-                    Your Message
-                  </label>
-                </div>
-
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  className="w-full py-4 bg-gradient-to-r from-accent-cyan to-accent-violet text-bg-primary font-dm-sans font-semibold rounded-lg hover:shadow-lg hover:shadow-accent-cyan/50 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 shimmer"
+              <div>
+                <label
+                  htmlFor="subject"
+                  style={{
+                    display: 'block',
+                    fontSize: '0.875rem',
+                    fontWeight: '600',
+                    color: '#1a1a1a',
+                    marginBottom: '0.5rem',
+                  }}
                 >
-                  Send Message
-                  <Send size={18} />
-                </button>
-              </form>
-            </motion.div>
-          </div>
-        </motion.div>
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  required
+                  style={{
+                    width: '100%',
+                    padding: '0.875rem',
+                    backgroundColor: 'white',
+                    border: '1px solid #e9ecef',
+                    borderRadius: '0.5rem',
+                    fontSize: '1rem',
+                    transition: 'border-color 0.3s',
+                  }}
+                  onFocus={(e) => {
+                    e.target.style.borderColor = '#6366f1';
+                  }}
+                  onBlur={(e) => {
+                    e.target.style.borderColor = '#e9ecef';
+                  }}
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="message"
+                  style={{
+                    display: 'block',
+                    fontSize: '0.875rem',
+                    fontWeight: '600',
+                    color: '#1a1a1a',
+                    marginBottom: '0.5rem',
+                  }}
+                >
+                  Your Message
+                </label>
+                <textarea
+                  id="message"
+                  required
+                  rows="6"
+                  style={{
+                    width: '100%',
+                    padding: '0.875rem',
+                    backgroundColor: 'white',
+                    border: '1px solid #e9ecef',
+                    borderRadius: '0.5rem',
+                    fontSize: '1rem',
+                    resize: 'vertical',
+                    transition: 'border-color 0.3s',
+                  }}
+                  onFocus={(e) => {
+                    e.target.style.borderColor = '#6366f1';
+                  }}
+                  onBlur={(e) => {
+                    e.target.style.borderColor = '#e9ecef';
+                  }}
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem',
+                  padding: '1rem 2rem',
+                  backgroundColor: '#6366f1',
+                  color: 'white',
+                  fontWeight: '600',
+                  fontSize: '1rem',
+                  border: 'none',
+                  borderRadius: '0.5rem',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s',
+                  boxShadow: '0 4px 6px rgba(99, 102, 241, 0.3)',
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = '#8b5cf6';
+                  e.target.style.transform = 'translateY(-2px)';
+                  e.target.style.boxShadow = '0 10px 15px rgba(99, 102, 241, 0.4)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.backgroundColor = '#6366f1';
+                  e.target.style.transform = 'translateY(0)';
+                  e.target.style.boxShadow = '0 4px 6px rgba(99, 102, 241, 0.3)';
+                }}
+              >
+                Submit
+                <Send size={20} />
+              </button>
+            </form>
+          </motion.div>
+        </div>
       </div>
+
+      <style>{`
+        @media (min-width: 1024px) {
+          .lg\\:grid-cols-5 {
+            grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+          }
+          .lg\\:col-span-2 {
+            grid-column: span 2 / span 2 !important;
+          }
+          .lg\\:col-span-3 {
+            grid-column: span 3 / span 3 !important;
+          }
+        }
+        @media (min-width: 768px) {
+          .md\\:grid-cols-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };

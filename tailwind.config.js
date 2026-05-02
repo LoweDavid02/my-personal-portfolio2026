@@ -20,6 +20,7 @@ export default {
       },
       fontFamily: {
         'syne': ['Syne', 'sans-serif'],
+        'space-mono': ['Space Mono', 'monospace'],
         'dm-mono': ['DM Mono', 'monospace'],
         'dm-sans': ['DM Sans', 'sans-serif'],
       },

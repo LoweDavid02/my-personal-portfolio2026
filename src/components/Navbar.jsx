@@ -10,7 +10,6 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      // Update active section based on scroll position
       const sections = ['home', 'about', 'tech-stack', 'projects', 'experience', 'contact'];
       const current = sections.find((section) => {
         const element = document.getElementById(section);
@@ -30,8 +29,8 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
-    { name: 'Tech Stack', href: '#tech-stack' },
-    { name: 'Projects', href: '#projects' },
+    { name: 'Skills', href: '#tech-stack' },
+    { name: 'Portfolio', href: '#projects' },
     { name: 'Experience', href: '#experience' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -43,55 +42,131 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? 'glass border-b border-accent-cyan shadow-lg shadow-accent-cyan/10'
-            : 'bg-transparent'
-        }`}
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 1000,
+          transition: 'all 0.3s ease',
+          backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.95)' : 'transparent',
+          backdropFilter: isScrolled ? 'blur(10px)' : 'none',
+          boxShadow: isScrolled ? '0 2px 10px rgba(0, 0, 0, 0.1)' : 'none',
+        }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+        <div
+          style={{
+            maxWidth: '1200px',
+            margin: '0 auto',
+            padding: '0 1.5rem',
+          }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              height: '80px',
+            }}
+          >
             {/* Logo */}
-            <a href="#home" className="flex items-center space-x-2 group">
-              <span className="font-dm-mono text-xl text-accent-cyan">
-                &lt;
-                <span className="font-bold text-text-primary group-hover:text-accent-cyan transition-colors">
-                  LD
-                </span>
-                /&gt;
-              </span>
-              <span className="inline-block w-0.5 h-6 bg-accent-cyan animate-blink ml-1"></span>
+            <a
+              href="#home"
+              style={{
+                fontSize: '1.5rem',
+                fontWeight: '800',
+                fontFamily: 'Poppins, sans-serif',
+                color: '#1a1a1a',
+                textDecoration: 'none',
+                transition: 'color 0.3s',
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.color = '#6366f1';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.color = '#1a1a1a';
+              }}
+            >
+              Lowe David
             </a>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div
+              style={{
+                display: 'none',
+                alignItems: 'center',
+                gap: '2.5rem',
+              }}
+              className="desktop-nav"
+            >
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`font-dm-mono text-sm transition-colors relative group ${
-                    activeSection === link.href.slice(1)
-                      ? 'text-accent-cyan'
-                      : 'text-text-muted hover:text-accent-cyan'
-                  }`}
+                  style={{
+                    fontSize: '0.9375rem',
+                    fontWeight: '500',
+                    color: activeSection === link.href.slice(1) ? '#6366f1' : '#6c757d',
+                    textDecoration: 'none',
+                    transition: 'color 0.3s',
+                    position: 'relative',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.color = '#6366f1';
+                  }}
+                  onMouseLeave={(e) => {
+                    if (activeSection !== link.href.slice(1)) {
+                      e.target.style.color = '#6c757d';
+                    }
+                  }}
                 >
                   {link.name}
-                  <span
-                    className={`absolute -bottom-1 left-0 h-0.5 bg-accent-cyan transition-all duration-300 ${
-                      activeSection === link.href.slice(1) ? 'w-full' : 'w-0 group-hover:w-full'
-                    }`}
-                  ></span>
                 </a>
               ))}
+
+              {/* Contact Button */}
+              <a
+                href="#contact"
+                style={{
+                  padding: '0.625rem 1.5rem',
+                  backgroundColor: '#6366f1',
+                  color: 'white',
+                  fontWeight: '600',
+                  fontSize: '0.9375rem',
+                  borderRadius: '0.5rem',
+                  textDecoration: 'none',
+                  transition: 'all 0.3s',
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = '#8b5cf6';
+                  e.target.style.transform = 'translateY(-2px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.backgroundColor = '#6366f1';
+                  e.target.style.transform = 'translateY(0)';
+                }}
+              >
+                Contact
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden text-accent-cyan p-2"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: '0.5rem',
+                backgroundColor: 'transparent',
+                border: 'none',
+                color: '#1a1a1a',
+                cursor: 'pointer',
+              }}
+              className="mobile-menu-btn"
               aria-label="Toggle menu"
             >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
         </div>
@@ -99,44 +174,113 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ${
-          isMobileMenuOpen ? 'visible' : 'invisible'
-        }`}
+        style={{
+          position: 'fixed',
+          inset: 0,
+          zIndex: 900,
+          transition: 'all 0.3s',
+          visibility: isMobileMenuOpen ? 'visible' : 'hidden',
+        }}
+        className="mobile-menu-wrapper"
       >
-        {/* Backdrop */}
         <div
-          className={`absolute inset-0 bg-bg-primary/95 backdrop-blur-lg transition-opacity duration-300 ${
-            isMobileMenuOpen ? 'opacity-100' : 'opacity-0'
-          }`}
+          style={{
+            position: 'absolute',
+            inset: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            transition: 'opacity 0.3s',
+            opacity: isMobileMenuOpen ? 1 : 0,
+          }}
           onClick={() => setIsMobileMenuOpen(false)}
         ></div>
 
-        {/* Menu Content */}
         <div
-          className={`absolute top-20 right-0 w-64 h-[calc(100vh-5rem)] glass border-l border-accent-cyan/20 p-8 transition-transform duration-300 ${
-            isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}
+          style={{
+            position: 'absolute',
+            top: '80px',
+            right: 0,
+            bottom: 0,
+            width: '100%',
+            maxWidth: '320px',
+            backgroundColor: 'white',
+            padding: '2rem',
+            transition: 'transform 0.3s ease',
+            transform: isMobileMenuOpen ? 'translateX(0)' : 'translateX(100%)',
+            overflowY: 'auto',
+            boxShadow: '-10px 0 40px rgba(0, 0, 0, 0.1)',
+          }}
         >
-          <div className="flex flex-col space-y-6">
-            {navLinks.map((link, index) => (
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.5rem',
+            }}
+          >
+            {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={handleLinkClick}
-                className={`font-dm-mono text-lg transition-all duration-300 ${
-                  activeSection === link.href.slice(1)
-                    ? 'text-accent-cyan translate-x-2'
-                    : 'text-text-muted hover:text-accent-cyan hover:translate-x-2'
-                }`}
-                style={{ transitionDelay: `${index * 50}ms` }}
+                style={{
+                  fontSize: '1.125rem',
+                  fontWeight: '500',
+                  color: activeSection === link.href.slice(1) ? '#6366f1' : '#6c757d',
+                  textDecoration: 'none',
+                  padding: '1rem',
+                  borderRadius: '0.5rem',
+                  transition: 'all 0.3s',
+                  backgroundColor: activeSection === link.href.slice(1) ? '#f8f9fa' : 'transparent',
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.backgroundColor = '#f8f9fa';
+                  e.target.style.color = '#6366f1';
+                }}
+                onMouseLeave={(e) => {
+                  if (activeSection !== link.href.slice(1)) {
+                    e.target.style.backgroundColor = 'transparent';
+                    e.target.style.color = '#6c757d';
+                  }
+                }}
               >
-                <span className="text-accent-cyan mr-2">0{index + 1}.</span>
                 {link.name}
               </a>
             ))}
+
+            <a
+              href="#contact"
+              onClick={handleLinkClick}
+              style={{
+                display: 'block',
+                padding: '1rem',
+                backgroundColor: '#6366f1',
+                color: 'white',
+                fontWeight: '600',
+                textAlign: 'center',
+                borderRadius: '0.5rem',
+                textDecoration: 'none',
+                marginTop: '1rem',
+              }}
+            >
+              Contact
+            </a>
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (min-width: 768px) {
+          .desktop-nav {
+            display: flex !important;
+          }
+          .mobile-menu-btn {
+            display: none !important;
+          }
+          .mobile-menu-wrapper {
+            display: none !important;
+          }
+        }
+      `}</style>
     </>
   );
 };

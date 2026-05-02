@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { useState } from 'react';
+import { Code, Database, Smartphone, Cloud } from 'lucide-react';
 
 const TechStack = () => {
   const [ref, inView] = useInView({
@@ -8,143 +8,176 @@ const TechStack = () => {
     threshold: 0.2,
   });
 
-  const [activeTab, setActiveTab] = useState('web');
-
-  const techCategories = {
-    web: [
-      { name: 'Laravel PHP', icon: 'laravel', color: '#FF2D20', proficiency: 90 },
-      { name: 'Laravel Reverb', icon: 'laravel', color: '#FF2D20', proficiency: 85 },
-      { name: 'React.js', icon: 'react', color: '#61DAFB', proficiency: 95 },
-      { name: 'Tailwind CSS', icon: 'tailwindcss', color: '#06B6D4', proficiency: 90 },
-      { name: 'PostgreSQL', icon: 'postgresql', color: '#4169E1', proficiency: 85 },
-    ],
-    mobile: [
-      { name: 'React Native', icon: 'react', color: '#61DAFB', proficiency: 90 },
-      { name: 'TypeScript', icon: 'typescript', color: '#3178C6', proficiency: 85 },
-      { name: 'JavaScript', icon: 'javascript', color: '#F7DF1E', proficiency: 95 },
-      { name: 'Convex', icon: 'convex', color: '#00f5ff', proficiency: 80 },
-    ],
-    devops: [
-      { name: 'Render', icon: 'render', color: '#46E3B7', proficiency: 85 },
-      { name: 'GitHub', icon: 'github', color: '#181717', proficiency: 90 },
-      { name: 'Git', icon: 'git', color: '#F05032', proficiency: 90 },
-    ],
-    design: [
-      { name: 'Figma', icon: 'figma', color: '#F24E1E', proficiency: 85 },
-    ],
-  };
-
-  const tabs = [
-    { id: 'web', label: 'Web App' },
-    { id: 'mobile', label: 'Mobile App' },
-    { id: 'devops', label: 'DevOps & Tools' },
-    { id: 'design', label: 'Design' },
+  const services = [
+    {
+      icon: Code,
+      title: 'Web Development',
+      description: 'I build responsive and high-performance web applications using modern technologies like Laravel, React, and Vue.js, ensuring accessibility, scalability, and maintainability.',
+      skills: ['Laravel', 'React.js', 'Vue.js', 'Tailwind CSS', 'JavaScript', 'TypeScript'],
+    },
+    {
+      icon: Database,
+      title: 'Backend Development',
+      description: 'I design robust backend systems with RESTful APIs, real-time features using WebSockets, and efficient database architecture for optimal performance.',
+      skills: ['Laravel Reverb', 'REST API', 'WebSockets', 'MySQL', 'PostgreSQL', 'Redis'],
+    },
+    {
+      icon: Smartphone,
+      title: 'Mobile Development',
+      description: 'I create cross-platform mobile applications using React Native with seamless offline support, push notifications, and real-time data synchronization.',
+      skills: ['React Native', 'Convex', 'TypeScript', 'Mobile UI/UX', 'Push Notifications'],
+    },
+    {
+      icon: Cloud,
+      title: 'DevOps & Deployment',
+      description: 'I manage cloud deployments, CI/CD pipelines, and infrastructure to ensure smooth, reliable, and scalable application delivery.',
+      skills: ['Docker', 'Render', 'GitHub Actions', 'CI/CD', 'Git', 'Cloud Services'],
+    },
   ];
 
   return (
-    <section id="tech-stack" className="py-20 px-4 sm:px-6 lg:px-8 relative">
-      <div className="max-w-7xl mx-auto">
+    <section
+      id="tech-stack"
+      ref={ref}
+      style={{
+        padding: '5rem 1.5rem',
+        backgroundColor: '#f8f9fa',
+      }}
+    >
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        {/* Section Header */}
         <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
+          style={{ textAlign: 'center', marginBottom: '4rem' }}
         >
-          {/* Section Label */}
-          <div className="font-dm-mono text-accent-cyan text-sm mb-8">
-            // 02 — TECH STACK
-          </div>
-
-          <h2 className="font-syne font-bold text-4xl sm:text-5xl text-text-primary mb-4">
-            Technologies I <span className="text-gradient-cyan-violet">Master</span>
-          </h2>
-
-          <p className="text-text-muted font-dm-sans text-lg mb-12">
-            Technologies I work with across web, mobile, and infrastructure.
-          </p>
-
-          {/* Tab Navigation */}
-          <div className="flex flex-wrap gap-4 mb-12 relative">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`font-dm-mono text-sm px-6 py-3 rounded-lg transition-all duration-300 relative ${
-                  activeTab === tab.id
-                    ? 'text-accent-cyan'
-                    : 'text-text-muted hover:text-accent-cyan'
-                }`}
-              >
-                {tab.label}
-                {activeTab === tab.id && (
-                  <motion.div
-                    layoutId="activeTab"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-accent-cyan"
-                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                  />
-                )}
-              </button>
-            ))}
-          </div>
-
-          {/* Tech Cards Grid */}
-          <motion.div
-            key={activeTab}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+          <h2
+            style={{
+              fontSize: 'clamp(2rem, 5vw, 3rem)',
+              fontWeight: '800',
+              fontFamily: 'Poppins, sans-serif',
+              marginBottom: '1rem',
+            }}
           >
-            {techCategories[activeTab].map((tech, index) => (
-              <motion.div
-                key={tech.name}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="glass rounded-xl p-6 border border-glass-border hover:border-accent-cyan transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-accent-cyan/20 group"
-              >
-                {/* Tech Icon */}
-                <div className="w-16 h-16 mb-4 flex items-center justify-center rounded-lg bg-gradient-to-br from-accent-cyan/10 to-accent-violet/10 group-hover:scale-110 transition-transform duration-300">
-                  <img
-                    src={`https://cdn.simpleicons.org/${tech.icon}`}
-                    alt={tech.name}
-                    className="w-10 h-10"
-                    style={{ filter: 'brightness(0) invert(1)' }}
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.nextSibling.style.display = 'block';
-                    }}
-                  />
-                  <div
-                    className="hidden w-10 h-10 rounded-full"
-                    style={{ backgroundColor: tech.color }}
-                  ></div>
-                </div>
-
-                {/* Tech Name */}
-                <h3 className="font-dm-sans font-semibold text-text-primary mb-3">
-                  {tech.name}
-                </h3>
-
-                {/* Proficiency Bar */}
-                <div className="space-y-2">
-                  <div className="flex justify-between text-xs font-dm-mono text-text-muted">
-                    <span>Proficiency</span>
-                    <span>{tech.proficiency}%</span>
-                  </div>
-                  <div className="h-1.5 bg-bg-secondary rounded-full overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      animate={inView ? { width: `${tech.proficiency}%` } : {}}
-                      transition={{ duration: 1, delay: index * 0.1 + 0.3 }}
-                      className="h-full bg-gradient-to-r from-accent-cyan to-accent-violet rounded-full"
-                    />
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+            What I{' '}
+            <span
+              style={{
+                background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              Do?
+            </span>
+          </h2>
+          <p
+            style={{
+              fontSize: '1.125rem',
+              color: '#6c757d',
+              maxWidth: '700px',
+              margin: '0 auto',
+              lineHeight: '1.8',
+            }}
+          >
+            I specialize in designing user experiences, crafting engaging interfaces, and building robust web applications that deliver value and usability.
+          </p>
         </motion.div>
+
+        {/* Services Grid */}
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '2rem',
+          }}
+        >
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              style={{
+                backgroundColor: 'white',
+                padding: '2.5rem',
+                borderRadius: '1rem',
+                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                transition: 'all 0.3s',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-10px)';
+                e.currentTarget.style.boxShadow = '0 20px 25px rgba(0, 0, 0, 0.15)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+              }}
+            >
+              {/* Icon */}
+              <div
+                style={{
+                  width: '64px',
+                  height: '64px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
+                  borderRadius: '1rem',
+                  marginBottom: '1.5rem',
+                }}
+              >
+                <service.icon size={32} color="white" />
+              </div>
+
+              {/* Title */}
+              <h3
+                style={{
+                  fontSize: '1.5rem',
+                  fontWeight: '700',
+                  fontFamily: 'Poppins, sans-serif',
+                  marginBottom: '1rem',
+                  color: '#1a1a1a',
+                }}
+              >
+                {service.title}
+              </h3>
+
+              {/* Description */}
+              <p
+                style={{
+                  fontSize: '1rem',
+                  color: '#6c757d',
+                  lineHeight: '1.7',
+                  marginBottom: '1.5rem',
+                }}
+              >
+                {service.description}
+              </p>
+
+              {/* Skills Tags */}
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                {service.skills.map((skill, i) => (
+                  <span
+                    key={i}
+                    style={{
+                      padding: '0.375rem 0.75rem',
+                      fontSize: '0.75rem',
+                      fontWeight: '500',
+                      backgroundColor: '#f8f9fa',
+                      color: '#6366f1',
+                      borderRadius: '0.375rem',
+                      border: '1px solid #e9ecef',
+                    }}
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
