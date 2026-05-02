@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useEffect, useState } from 'react';
+import profileImage from '../assets/Lowe.png';
 
 const About = () => {
   const [ref, inView] = useInView({
@@ -73,12 +74,14 @@ const About = () => {
                 <div className="absolute bottom-4 left-4 w-8 h-8 border-b-2 border-l-2 border-accent-cyan"></div>
                 <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-accent-cyan"></div>
 
-                {/* Abstract Avatar */}
-                <div className="aspect-square bg-gradient-to-br from-accent-cyan/20 to-accent-violet/20 rounded-xl flex items-center justify-center relative overflow-hidden">
+                {/* Profile Image */}
+                <div className="aspect-square rounded-xl flex items-center justify-center relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-tr from-accent-cyan/10 to-accent-violet/10 animate-gradient-shift"></div>
-                  <div className="relative z-10 text-8xl font-syne font-bold text-gradient-cyan-violet">
-                    LD
-                  </div>
+                  <img 
+                    src={profileImage} 
+                    alt="Lowe David Profile" 
+                    className="relative z-10 w-full h-full object-cover rounded-xl"
+                  />
                   
                   {/* Glowing ring */}
                   <div className="absolute inset-0 border-4 border-accent-cyan/30 rounded-xl animate-pulse-glow"></div>
