@@ -87,7 +87,7 @@ const Navbar = () => {
                 e.target.style.color = '#1a1a1a';
               }}
             >
-              Lowe David
+              Lowe David Tubat
             </a>
 
             {/* Desktop Navigation */}

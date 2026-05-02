@@ -64,7 +64,7 @@ const Hero = () => {
                 backgroundClip: 'text',
               }}
             >
-              Lowe David
+              Lowe David Tubat
             </motion.h1>
 
             {/* Description */}
@@ -146,7 +146,7 @@ const Hero = () => {
             >
               <img
                 src={profileImage}
-                alt="Lowe David"
+                alt="Lowe David Tubat"
                 style={{
                   width: '100%',
                   height: 'auto',
