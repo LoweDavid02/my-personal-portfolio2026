@@ -14,7 +14,7 @@ const About = () => {
       id="about"
       ref={ref}
       style={{
-        padding: '5rem 1.5rem',
+        padding: '6rem 1.5rem',
         backgroundColor: '#ffffff',
       }}
     >
@@ -26,9 +26,10 @@ const About = () => {
           transition={{ duration: 0.8 }}
           style={{
             background: 'white',
-            borderRadius: '2rem',
+            borderRadius: '1.5rem',
             padding: '4rem 3rem',
-            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)',
+            boxShadow: '0 8px 24px rgba(0, 0, 0, 0.08)',
+            border: '1px solid #f0f0f0',
           }}
           className="about-card"
         >

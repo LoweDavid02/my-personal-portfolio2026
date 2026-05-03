@@ -16,8 +16,8 @@ const Hero = () => {
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
-        padding: '8rem 1.5rem 5rem',
-        background: 'linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%)',
+        padding: '10rem 1.5rem 6rem',
+        background: '#fafbfc',
       }}
     >
       <div style={{ maxWidth: '1200px', margin: '0 auto', width: '100%' }}>
@@ -28,9 +28,9 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           style={{
             background: 'white',
-            borderRadius: '2rem',
+            borderRadius: '1.5rem',
             padding: '4rem 3rem',
-            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)',
+            boxShadow: '0 8px 24px rgba(0, 0, 0, 0.08)',
             marginBottom: '4rem',
           }}
           className="hero-card"
@@ -179,7 +179,7 @@ const Hero = () => {
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '2rem',
+            gap: '1.5rem',
             maxWidth: '900px',
             margin: '0 auto',
           }}
@@ -189,31 +189,32 @@ const Hero = () => {
               key={index}
               style={{
                 textAlign: 'center',
-                padding: '2rem',
+                padding: '2.5rem 2rem',
                 background: 'white',
                 borderRadius: '1rem',
-                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.06)',
                 transition: 'all 0.3s',
+                border: '1px solid #f0f0f0',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-5px)';
-                e.currentTarget.style.boxShadow = '0 10px 15px rgba(0, 0, 0, 0.15)';
+                e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.12)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+                e.currentTarget.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.06)';
               }}
             >
               <div
                 style={{
-                  fontSize: '3rem',
+                  fontSize: '2.75rem',
                   fontWeight: '800',
                   fontFamily: 'Poppins, sans-serif',
                   background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
-                  marginBottom: '0.5rem',
+                  marginBottom: '0.75rem',
                 }}
               >
                 {stat.value}
@@ -222,7 +223,7 @@ const Hero = () => {
                 style={{
                   fontSize: '0.875rem',
                   color: '#6c757d',
-                  fontWeight: '500',
+                  fontWeight: '600',
                   textTransform: 'uppercase',
                   letterSpacing: '0.05em',
                 }}

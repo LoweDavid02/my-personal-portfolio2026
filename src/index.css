@@ -1,5 +1,5 @@
 /* Import Google Fonts - Picto Style */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 /* CSS Reset */
 *, *::before, *::after {
@@ -12,6 +12,7 @@
 :root {
   --bg-primary: #ffffff;
   --bg-secondary: #f8f9fa;
+  --bg-light: #fafbfc;
   --bg-dark: #1a1a1a;
   --text-primary: #1a1a1a;
   --text-secondary: #6c757d;
@@ -20,10 +21,10 @@
   --accent-secondary: #8b5cf6;
   --accent-success: #10b981;
   --border-light: #e9ecef;
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.15);
 }
 
 @tailwind base;
