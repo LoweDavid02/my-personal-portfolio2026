@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ExternalLink } from 'lucide-react';
+import opendoorMobileImg from '../assets/opendoormobile.png';
+import opendoorWebImg from '../assets/opendoorweb.png';
+import sanVicenteImg from '../assets/image.png';
 
 const Projects = () => {
   const [ref, inView] = useInView({
@@ -16,7 +19,7 @@ const Projects = () => {
         'A comprehensive mobile appointment management system featuring analytics dashboard, real-time appointment tracking, and performance insights. Built with React Native for seamless cross-platform experience with intuitive UI/UX design.',
       tags: ['React Native', 'Mobile', 'Analytics', 'Real-time'],
       link: 'https://github.com/garrellmacarilay/open-door-mobile',
-      image: 'https://raw.githubusercontent.com/garrellmacarilay/open-door-mobile/main/screenshot.png',
+      image: opendoorMobileImg,
     },
     {
       title: 'OpenDoor Web Application',
@@ -25,7 +28,7 @@ const Projects = () => {
         'Full-featured web application for office consultation management with calendar scheduling, appointment tracking, and comprehensive dashboard. Features include pending approvals, upcoming events, and real-time consultation monitoring.',
       tags: ['React.js', 'Dashboard', 'Calendar', 'Scheduling'],
       link: 'https://github.com/garrellmacarilay/open-door',
-      image: 'https://raw.githubusercontent.com/garrellmacarilay/open-door/main/screenshot.png',
+      image: opendoorWebImg,
     },
     {
       title: 'San Vicente Ticket Management System',
@@ -34,7 +37,7 @@ const Projects = () => {
         'Advanced ticket management system for Barangay San Vicente with real-time operations analytics, complaint mapping, department workload tracking, and personnel management. Features interactive map visualization and comprehensive reporting dashboard.',
       tags: ['Laravel', 'Analytics', 'Mapping', 'Real-time', 'Dashboard'],
       link: 'https://github.com/LoweDavid02/SAN-VICENTE-TICKET-MANAGEMENT-SYSTEM',
-      image: 'https://raw.githubusercontent.com/LoweDavid02/SAN-VICENTE-TICKET-MANAGEMENT-SYSTEM/main/screenshot.png',
+      image: sanVicenteImg,
     },
   ];
 
