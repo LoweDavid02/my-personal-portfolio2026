@@ -12,7 +12,7 @@ const Experience = () => {
     {
       period: '2024 – Present',
       role: 'Full-Stack Developer',
-      company: 'Freelance / Student Projects',
+      company: 'Student Projects & Personal Development',
       description:
         'Developing modern web and mobile applications using cutting-edge technologies. Building scalable solutions with React ecosystems, Laravel backend, and real-time features while pursuing my Bachelor of Science in Information Systems degree.',
       responsibilities: [
