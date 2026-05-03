@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import logo from '../assets/ldrovert.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -73,6 +74,9 @@ const Navbar = () => {
             <a
               href="#home"
               style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.75rem',
                 fontSize: '1.5rem',
                 fontWeight: '800',
                 fontFamily: 'Poppins, sans-serif',
@@ -87,7 +91,16 @@ const Navbar = () => {
                 e.target.style.color = '#1a1a1a';
               }}
             >
-              Lowe David Tubat
+              <img
+                src={logo}
+                alt="LDrovert Logo"
+                style={{
+                  width: '190px',
+                  height: '190px',
+                  objectFit: 'contain',
+                }}
+              />
+           
             </a>
 
             {/* Desktop Navigation */}
