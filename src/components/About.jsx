@@ -69,7 +69,7 @@ const About = () => {
                 lineHeight: '1.2',
               }}
             >
-              I am Professional{' '}
+              Aspiring{' '}
               <span
                 style={{
                   background: 'linear-gradient(135deg, #6366f1, #8b5cf6)',
@@ -97,7 +97,7 @@ const About = () => {
                   lineHeight: '1.8',
                 }}
               >
-                I design and develop services for customers specializing in creating stylish, modern websites, web services and online stores. My passion is to design digital user experiences through carefully crafted code and user-centric design.
+                I'm a Bachelor of Science in Information Systems student with a passion for creating modern, user-friendly web and mobile applications. My journey in development started in 2022, learning the fundamentals with Java, HTML, CSS, JavaScript, MySQL, PHP, and Python.
               </p>
 
               <p
@@ -107,7 +107,7 @@ const About = () => {
                   lineHeight: '1.8',
                 }}
               >
-                I specialize in Laravel, Vue.js, React, and modern web technologies to build scalable, high-performance applications that deliver real value to users and businesses.
+                Since 2024, I've been focusing on modern technologies including React.js, Vite, Laravel PHP, Convex, React Native, Tailwind CSS, TypeScript, Inertia.js, and Figma. I love building scalable applications with clean code and intuitive user experiences.
               </p>
             </div>
 

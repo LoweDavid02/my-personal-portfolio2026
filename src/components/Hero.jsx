@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
-import { Mail, Download, ArrowRight } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import profileImage from '../assets/lowe2.png';
 
 const Hero = () => {
   const stats = [
-    { value: '5+', label: 'Years Experience' },
-    { value: '40+', label: 'Projects Completed' },
-    { value: '12+', label: 'Happy Clients' },
+    { value: '4+', label: 'Years Experience' },
+    { value: '15+', label: 'Projects Completed' },
+    { value: '10+', label: 'Technologies' },
   ];
 
   return (
@@ -80,7 +80,7 @@ const Hero = () => {
                 lineHeight: '1.8',
               }}
             >
-              I'm a Freelance Full-Stack Developer and Laravel Specialist based in the Philippines. I strive to build immersive and beautiful web applications through carefully crafted code and user-centric design.
+              Bachelor of Science in Information Systems student passionate about building modern web and mobile applications. Specializing in React, Laravel, and React Native development.
             </motion.p>
 
             {/* CTA Buttons */}

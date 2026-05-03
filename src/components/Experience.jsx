@@ -10,32 +10,33 @@ const Experience = () => {
 
   const experiences = [
     {
-      period: '2023 – Present',
+      period: '2024 – Present',
       role: 'Full-Stack Developer',
-      company: 'Freelance / Remote',
+      company: 'Freelance / Student Projects',
       description:
-        'Leading full-stack development projects for various clients, specializing in Laravel and React ecosystems. Building scalable web applications with real-time features and modern UI/UX.',
+        'Developing modern web and mobile applications using cutting-edge technologies. Building scalable solutions with React ecosystems, Laravel backend, and real-time features while pursuing my Bachelor of Science in Information Systems degree.',
       responsibilities: [
         'Built and deployed full-stack web apps using Laravel + React.js with real-time features via Laravel Reverb',
         'Developed cross-platform mobile apps using React Native and Convex backend',
-        'Managed deployments on Render and maintained CI/CD pipelines via GitHub',
-        'Collaborated with clients to define project requirements and deliver solutions',
+        'Implemented responsive UI components using Tailwind CSS and TypeScript',
+        'Collaborated with teams using GitHub for version control and project management',
       ],
-      tags: ['Laravel', 'React.js', 'React Native', 'PostgreSQL', 'Convex'],
+      tags: ['React.js', 'Laravel', 'React Native', 'Convex', 'TypeScript', 'Tailwind CSS', 'Inertia.js', 'Figma'],
     },
     {
-      period: '2022 – 2023',
-      role: 'Junior Web Developer',
-      company: 'Tech Solutions Inc.',
+      period: '2022 – 2024',
+      role: 'Learning Web Development Fundamentals',
+      company: 'Self-Study & Academic Projects',
       description:
-        'Contributed to the development of enterprise web applications and e-commerce platforms. Worked closely with senior developers to implement features and optimize performance.',
+        'Built a strong foundation in web development through hands-on learning and academic projects. Mastered core technologies and database management while developing various practice applications.',
       responsibilities: [
-        'Developed RESTful APIs with Laravel and integrated React.js frontends',
-        'Collaborated on PostgreSQL database design and optimization',
-        'Implemented responsive UI components using Tailwind CSS',
-        'Participated in code reviews and agile development processes',
+        'Learned Java programming fundamentals and object-oriented concepts',
+        'Developed web pages using HTML, CSS, and JavaScript',
+        'Created dynamic websites with PHP and MySQL databases',
+        'Set up local development environments using XAMPP and phpMyAdmin',
+        'Explored Python basics for scripting and automation',
       ],
-      tags: ['Laravel', 'React.js', 'PostgreSQL', 'Tailwind CSS', 'REST API'],
+      tags: ['Java', 'HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL', 'Python', 'XAMPP'],
     },
   ];
 
