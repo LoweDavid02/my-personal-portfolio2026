@@ -12,19 +12,19 @@ const Contact = () => {
     {
       icon: MapPin,
       label: 'Address',
-      value: 'Philippines',
+      value: 'Sampaloc, Apalit, Pampanga',
     },
     {
       icon: Mail,
       label: 'My Email',
-      value: 'your.email@example.com',
-      href: 'mailto:your.email@example.com',
+      value: 'louiecamarines21@gmail.com',
+      href: 'mailto:louiecamarines21@gmail.com',
     },
     {
       icon: Phone,
       label: 'Call Me Now',
-      value: '+63 123 456 7890',
-      href: 'tel:+631234567890',
+      value: '09639175590',
+      href: 'tel:+639639175590',
     },
   ];
 
@@ -109,7 +109,7 @@ const Contact = () => {
                   marginBottom: '1rem',
                 }}
               >
-                I'm available for freelance work
+                Let's work together
               </h3>
               <p
                 style={{
@@ -118,7 +118,7 @@ const Contact = () => {
                   lineHeight: '1.7',
                 }}
               >
-                Drop me a line if you have a project you think I'd be a good fit for.
+                Feel free to reach out for collaborations or just a friendly hello.
               </p>
             </div>
 

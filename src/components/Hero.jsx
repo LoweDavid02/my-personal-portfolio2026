@@ -96,7 +96,7 @@ const Hero = () => {
               }}
             >
               <a
-                href="mailto:your.email@example.com"
+                href="mailto:louiecamarines21@gmail.com"
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',

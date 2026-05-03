@@ -13,9 +13,9 @@ const Footer = () => {
 
   const socialLinks = [
     { name: 'GitHub', href: 'https://github.com/LoweDavid02', label: 'GitHub' },
-    { name: 'LinkedIn', href: 'https://linkedin.com/in/lowe-david', label: 'LinkedIn' },
-    { name: 'Twitter', href: 'https://twitter.com/lowedavid', label: 'Twitter' },
-    { name: 'Email', href: 'mailto:lowedavid02@gmail.com', label: 'Email' },
+    { name: 'LinkedIn', href: 'https://www.linkedin.com/in/louie-david-tubat-2a1913277/', label: 'LinkedIn' },
+    { name: 'Facebook', href: 'https://www.facebook.com/EldieCetie', label: 'Facebook' },
+    { name: 'Instagram', href: 'https://www.instagram.com/ldct23/', label: 'Instagram' },
   ];
 
   const scrollToTop = () => {
@@ -70,7 +70,7 @@ const Footer = () => {
                 marginBottom: '1.5rem',
               }}
             >
-              Full-Stack Developer & Laravel Specialist crafting elegant solutions for complex problems.
+              Bachelor of Science in Information Systems student passionate about building modern web and mobile applications.
             </p>
             {/* Social Links */}
             <div style={{ display: 'flex', gap: '0.75rem' }}>
