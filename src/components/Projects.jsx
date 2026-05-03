@@ -1,6 +1,7 @@
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, X } from 'lucide-react';
+import { useState } from 'react';
 import opendoorMobileImg from '../assets/opendoormobile.png';
 import opendoorWebImg from '../assets/opendoorweb.png';
 import sanVicenteImg from '../assets/image.png';
@@ -10,6 +11,8 @@ const Projects = () => {
     triggerOnce: true,
     threshold: 0.2,
   });
+
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const projects = [
     {
@@ -129,7 +132,10 @@ const Projects = () => {
                   height: '240px',
                   overflow: 'hidden',
                   backgroundColor: '#f8f9fa',
+                  cursor: 'pointer',
+                  position: 'relative',
                 }}
+                onClick={() => setSelectedImage({ src: project.image, title: project.title })}
               >
                 <img
                   src={project.image}
@@ -147,6 +153,26 @@ const Projects = () => {
                     e.target.style.transform = 'scale(1)';
                   }}
                 />
+                <div
+                  style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    backgroundColor: 'rgba(99, 102, 241, 0.9)',
+                    color: 'white',
+                    padding: '0.75rem 1.5rem',
+                    borderRadius: '0.5rem',
+                    fontSize: '0.875rem',
+                    fontWeight: '600',
+                    opacity: '0',
+                    transition: 'opacity 0.3s',
+                    pointerEvents: 'none',
+                  }}
+                  className="view-image-overlay"
+                >
+                  Click to view
+                </div>
               </div>
 
               {/* Project Content */}
@@ -280,6 +306,104 @@ const Projects = () => {
           </a>
         </motion.div>
       </div>
+
+      {/* Image Lightbox Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: 'rgba(0, 0, 0, 0.9)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              zIndex: 9999,
+              padding: '2rem',
+              cursor: 'pointer',
+            }}
+          >
+            <motion.button
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              onClick={() => setSelectedImage(null)}
+              style={{
+                position: 'absolute',
+                top: '2rem',
+                right: '2rem',
+                backgroundColor: 'white',
+                border: 'none',
+                borderRadius: '50%',
+                width: '48px',
+                height: '48px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3)',
+                transition: 'all 0.3s',
+                zIndex: 10000,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'scale(1.1)';
+                e.currentTarget.style.backgroundColor = '#6366f1';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'scale(1)';
+                e.currentTarget.style.backgroundColor = 'white';
+              }}
+              aria-label="Close"
+            >
+              <X size={24} color="#1a1a1a" />
+            </motion.button>
+
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ type: 'spring', damping: 25 }}
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                maxWidth: '90vw',
+                maxHeight: '90vh',
+                backgroundColor: 'white',
+                borderRadius: '1rem',
+                overflow: 'hidden',
+                boxShadow: '0 25px 50px rgba(0, 0, 0, 0.5)',
+                cursor: 'default',
+              }}
+            >
+              <img
+                src={selectedImage.src}
+                alt={selectedImage.title}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'contain',
+                  display: 'block',
+                }}
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <style>{`
+        .view-image-overlay {
+          opacity: 0 !important;
+        }
+        div:hover > .view-image-overlay {
+          opacity: 1 !important;
+        }
+      `}</style>
     </section>
   );
 };
