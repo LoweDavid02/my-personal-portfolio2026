@@ -27,9 +27,10 @@ const About = () => {
           style={{
             background: 'white',
             borderRadius: '2rem',
-            padding: '3rem 2rem',
+            padding: '4rem 3rem',
             boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)',
           }}
+          className="about-card"
         >
           <div
             style={{
@@ -192,6 +193,9 @@ const About = () => {
         @media (min-width: 1024px) {
           .lg\\:grid-cols-2 {
             grid-template-columns: 1fr 1fr !important;
+          }
+          .about-card {
+            padding: 5rem 4rem !important;
           }
         }
       `}</style>

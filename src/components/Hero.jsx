@@ -29,10 +29,11 @@ const Hero = () => {
           style={{
             background: 'white',
             borderRadius: '2rem',
-            padding: '3rem 2rem',
+            padding: '4rem 3rem',
             boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)',
             marginBottom: '4rem',
           }}
+          className="hero-card"
         >
           <div
             style={{
@@ -243,6 +244,9 @@ const Hero = () => {
           }
           .hero-content > div:last-of-type {
             justify-content: flex-start !important;
+          }
+          .hero-card {
+            padding: 5rem 4rem !important;
           }
         }
       `}</style>
