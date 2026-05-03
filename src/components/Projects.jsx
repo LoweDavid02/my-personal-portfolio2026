@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ExternalLink, ArrowRight } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 const Projects = () => {
   const [ref, inView] = useInView({
@@ -10,58 +10,31 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'RealtimeBoard',
+      title: 'OpenDoor Mobile',
+      category: 'MOBILE APPLICATION',
+      description:
+        'A comprehensive mobile appointment management system featuring analytics dashboard, real-time appointment tracking, and performance insights. Built with React Native for seamless cross-platform experience with intuitive UI/UX design.',
+      tags: ['React Native', 'Mobile', 'Analytics', 'Real-time'],
+      link: 'https://github.com/garrellmacarilay/open-door-mobile',
+      image: 'https://raw.githubusercontent.com/garrellmacarilay/open-door-mobile/main/screenshot.png',
+    },
+    {
+      title: 'OpenDoor Web Application',
       category: 'WEB APPLICATION',
       description:
-        'A real-time collaborative project board built with Laravel, Laravel Reverb (WebSockets), React.js, and PostgreSQL. Features live updates, drag-and-drop tasks, and role-based access control.',
-      tags: ['Laravel', 'Reverb', 'React.js', 'PostgreSQL', 'WebSockets'],
-      link: '#',
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
+        'Full-featured web application for office consultation management with calendar scheduling, appointment tracking, and comprehensive dashboard. Features include pending approvals, upcoming events, and real-time consultation monitoring.',
+      tags: ['React.js', 'Dashboard', 'Calendar', 'Scheduling'],
+      link: 'https://github.com/garrellmacarilay/open-door',
+      image: 'https://raw.githubusercontent.com/garrellmacarilay/open-door/main/screenshot.png',
     },
     {
-      title: 'TaskFlow Mobile',
-      category: 'MOBILE APP',
-      description:
-        'A cross-platform task management mobile app built with React Native, TypeScript, and Convex for real-time backend sync. Supports offline mode and push notifications.',
-      tags: ['React Native', 'TypeScript', 'Convex', 'Mobile'],
-      link: '#',
-      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop',
-    },
-    {
-      title: 'DevPortal Dashboard',
+      title: 'San Vicente Ticket Management System',
       category: 'WEB APPLICATION',
       description:
-        'A developer dashboard for managing API keys, monitoring usage metrics, and deploying services. Deployed on Render with CI/CD via GitHub Actions.',
-      tags: ['React.js', 'Laravel', 'PostgreSQL', 'Render'],
-      link: '#',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
-    },
-    {
-      title: 'E-Commerce Platform',
-      category: 'WEB APPLICATION',
-      description:
-        'Full-featured e-commerce platform with payment integration, inventory management, and admin dashboard. Built with Laravel and Vue.js.',
-      tags: ['Laravel', 'Vue.js', 'MySQL', 'Stripe'],
-      link: '#',
-      image: 'https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop',
-    },
-    {
-      title: 'Social Media App',
-      category: 'MOBILE APP',
-      description:
-        'Social networking mobile application with real-time messaging, stories, and content sharing. Built with React Native and Firebase.',
-      tags: ['React Native', 'Firebase', 'Real-time', 'Social'],
-      link: '#',
-      image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=600&fit=crop',
-    },
-    {
-      title: 'Analytics Dashboard',
-      category: 'WEB APPLICATION',
-      description:
-        'Comprehensive analytics dashboard with data visualization, reporting, and insights. Features interactive charts and real-time data updates.',
-      tags: ['React.js', 'Chart.js', 'Laravel', 'Analytics'],
-      link: '#',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
+        'Advanced ticket management system for Barangay San Vicente with real-time operations analytics, complaint mapping, department workload tracking, and personnel management. Features interactive map visualization and comprehensive reporting dashboard.',
+      tags: ['Laravel', 'Analytics', 'Mapping', 'Real-time', 'Dashboard'],
+      link: 'https://github.com/LoweDavid02/SAN-VICENTE-TICKET-MANAGEMENT-SYSTEM',
+      image: 'https://raw.githubusercontent.com/LoweDavid02/SAN-VICENTE-TICKET-MANAGEMENT-SYSTEM/main/screenshot.png',
     },
   ];
 
@@ -239,6 +212,8 @@ const Projects = () => {
                 {/* Link */}
                 <a
                   href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
@@ -256,8 +231,8 @@ const Projects = () => {
                     e.target.style.gap = '0.5rem';
                   }}
                 >
-                  Case Study
-                  <ArrowRight size={18} />
+                  View on GitHub
+                  <ExternalLink size={18} />
                 </a>
               </div>
             </motion.div>
