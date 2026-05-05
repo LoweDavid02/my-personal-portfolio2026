@@ -157,7 +157,7 @@ const About = () => {
                 </a>
 
                 <a
-                  href="/cv.pdf"
+                  href="/Lowe David C. Tubat.pdf"
                   download
                   style={{
                     display: 'inline-flex',
