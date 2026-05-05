@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Download, Briefcase } from 'lucide-react';
 import profileImage from '../assets/lowe1.png';
+import cvFile from '../assets/lowedavidtubatcv.pdf';
 
 const About = () => {
   const [ref, inView] = useInView({
@@ -157,7 +158,7 @@ const About = () => {
                 </a>
 
                 <a
-                  href="/Lowe-David-Tubat-CV.pdf"
+                  href={cvFile}
                   download="Lowe-David-Tubat-CV.pdf"
                   style={{
                     display: 'inline-flex',
