@@ -157,8 +157,8 @@ const About = () => {
                 </a>
 
                 <a
-                  href="/Lowe_David_C._Tubat.pdf"
-                  download="Lowe_David_C_Tubat.pdf"
+                  href="/Lowe-David-Tubat-CV.pdf"
+                  download="Lowe-David-Tubat-CV.pdf"
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
