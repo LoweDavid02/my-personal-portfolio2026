@@ -374,6 +374,100 @@ export const PROJECTS = [
       ],
     },
   },
+  {
+    id: 'project-004',
+    slug: 'bitforge-it-services',
+    title: 'BitForge IT Services — Startup Web Platform',
+    shortTitle: 'BitForge IT Services',
+    organization: 'BitForge · Startup Project',
+    summary:
+      'Cutting-edge IT services startup platform specializing in enterprise-grade software development, cloud architecture, cybersecurity, and digital transformation—built with React JS, Tailwind CSS, and Laravel PHP, and deployed on Render.',
+    category: 'full-stack-web',
+    technologies: ['React JS', 'Tailwind CSS', 'Laravel', 'PHP', 'Render'],
+    tags: ['Startup Project', 'IT Services', 'Enterprise Solutions', 'Service Booking'],
+    featured: true,
+    status: 'deployed',
+    statusLabel: 'Startup Project · Deployed on Render',
+    deploymentPlatform: 'Render',
+    role: 'Full-Stack Developer (Frontend & Backend)',
+    startedAt: null,
+    completedAt: null,
+    periodLabel: 'Deployed on Render',
+    coverImage: 'images/projects/bitforge-hero.jpg',
+    coverAlt:
+      'BitForge IT Services landing interface featuring navigation links for Home, Services, Portfolio, Team, Contact, and Book a Service calls to action',
+    gallery: [
+      {
+        src: 'images/projects/bitforge-hero.jpg',
+        alt: 'BitForge IT Services homepage hero showing brand mark, primary navigation, and Book a Service and Explore Services actions',
+        caption:
+          'BitForge IT Services web interface featuring service booking calls to action and navigation across Services, Portfolio, Team, and Contact.',
+      },
+    ],
+    links: {
+      demo: 'https://bitforge-it-services-management.onrender.com',
+      github: null,
+      documentation: null,
+    },
+    caseStudy: {
+      overview:
+        'Forging the Future of Technology — BitForge is a cutting-edge IT services company specializing in enterprise-grade solutions. Founded on the principles of precision engineering and innovative thinking, BitForge transforms complex technical challenges into elegant, scalable solutions. A team of 10+ seasoned professionals brings together expertise in software development, cloud architecture, cybersecurity, and digital transformation to forge partnerships that drive lasting business value.',
+      problem:
+        'Enterprise clients evaluating an IT services partner need a clear digital presence that communicates engineering capability across software, cloud, and cybersecurity while providing a straightforward path to explore services and book consultations.',
+      solution:
+        'Developed a full-stack web platform pairing a responsive React JS and Tailwind CSS frontend with a Laravel PHP backend, deployed and hosted on Render.',
+      objectives: [
+        'Present BitForge’s enterprise IT services, portfolio, and multidisciplinary team cleanly.',
+        'Provide direct service exploration and booking workflows for prospective clients.',
+        'Deliver a fast, responsive full-stack web application hosted on Render.',
+      ],
+      features: [
+        {
+          group: 'Client Experience & Service Discovery',
+          items: [
+            'Dedicated navigation sections for Home, Services, Portfolio, Team, and Contact',
+            'Prominent Book Now and Book a Service entry points alongside Explore Services actions',
+            'Responsive interface crafted with React JS and Tailwind CSS',
+          ],
+        },
+        {
+          group: 'Backend & Cloud Deployment',
+          items: [
+            'Server-side application logic and service endpoints powered by Laravel PHP',
+            'Production deployment configured and running on Render',
+          ],
+        },
+      ],
+      architecture: {
+        summary:
+          'React JS and Tailwind CSS frontend paired with a Laravel PHP backend and deployed on Render.',
+        layers: [
+          {
+            name: 'Frontend Interface',
+            tech: 'React JS, Tailwind CSS',
+            detail:
+              'Responsive marketing, portfolio, team, and service booking interface built with utility-first styling.',
+          },
+          {
+            name: 'Backend Application',
+            tech: 'Laravel PHP',
+            detail:
+              'Handles backend application workflows, inquiry/booking processing, and API integration.',
+          },
+          {
+            name: 'Cloud Hosting',
+            tech: 'Render',
+            detail:
+              'Managed cloud deployment pipeline serving the BitForge startup web application.',
+          },
+        ],
+      },
+      missingFields: [
+        'Repository link (if public)',
+        'Additional screenshots of Services, Portfolio, Team, and Book Now views',
+      ],
+    },
+  },
 ];
 
 export function getProjectBySlug(slug) {

@@ -20,7 +20,7 @@ describe('projectFilters', () => {
 
   it('filters by primary category accurately', () => {
     const webProjects = filterProjects(PROJECTS, { category: 'full-stack-web' });
-    expect(webProjects).toHaveLength(2);
+    expect(webProjects).toHaveLength(3);
     expect(webProjects.every((p) => p.category === 'full-stack-web')).toBe(true);
 
     const mobileProjects = filterProjects(PROJECTS, { category: 'mobile' });
@@ -38,7 +38,7 @@ describe('projectFilters', () => {
     expect(matchesTechnologyFilter(['Laravel', 'MySQL'], 'react')).toBe(false);
 
     const laravelProjects = filterProjects(PROJECTS, { tech: 'laravel' });
-    expect(laravelProjects).toHaveLength(3);
+    expect(laravelProjects).toHaveLength(4);
 
     const postgresProjects = filterProjects(PROJECTS, { tech: 'postgresql' });
     expect(postgresProjects).toHaveLength(1);

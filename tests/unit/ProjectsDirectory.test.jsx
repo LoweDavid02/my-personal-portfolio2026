@@ -26,23 +26,23 @@ describe('Projects Directory & Case Study Routing', () => {
     expect(
       await screen.findByRole('heading', { name: 'Project Directory', level: 1 })
     ).toBeInTheDocument();
-    expect(screen.getByText(/Showing/i)).toHaveTextContent('Showing 3 of 3 projects');
+    expect(screen.getByText(/Showing/i)).toHaveTextContent('Showing 4 of 4 projects');
 
     // Filter by Mobile Apps category
     await user.click(screen.getByRole('button', { name: /Mobile Apps/i }));
     expect(screen.getByTestId('location-spy')).toHaveTextContent('/projects?category=mobile');
-    expect(screen.getByText(/Showing/i)).toHaveTextContent('Showing 1 of 3 projects');
+    expect(screen.getByText(/Showing/i)).toHaveTextContent('Showing 1 of 4 projects');
     expect(screen.getByText('OpenDoor Mobile')).toBeInTheDocument();
 
     // Reset all filters
     await user.click(screen.getByRole('button', { name: 'Clear filters' }));
     expect(screen.getByTestId('location-spy')).toHaveTextContent('/projects');
-    expect(screen.getByText(/Showing/i)).toHaveTextContent('Showing 3 of 3 projects');
+    expect(screen.getByText(/Showing/i)).toHaveTextContent('Showing 4 of 4 projects');
 
     // Filter by Technology (PostgreSQL)
     await user.click(screen.getByRole('button', { name: 'PostgreSQL' }));
     expect(screen.getByTestId('location-spy')).toHaveTextContent('tech=postgresql');
-    expect(screen.getByText(/Showing/i)).toHaveTextContent('Showing 1 of 3 projects');
+    expect(screen.getByText(/Showing/i)).toHaveTextContent('Showing 1 of 4 projects');
   });
 
   it('filters via search input, supports sorting, and shows empty state on no match', async () => {
@@ -52,7 +52,7 @@ describe('Projects Directory & Case Study Routing', () => {
     const searchInput = await screen.findByLabelText('Search projects');
     await user.type(searchInput, 'San Vicente');
 
-    expect(screen.getByText(/Showing/i)).toHaveTextContent('Showing 1 of 3 projects');
+    expect(screen.getByText(/Showing/i)).toHaveTextContent('Showing 1 of 4 projects');
     expect(screen.getByText('Barangay San Vicente Ticketing System')).toBeInTheDocument();
 
     await user.clear(searchInput);
@@ -60,7 +60,7 @@ describe('Projects Directory & Case Study Routing', () => {
     expect(await screen.findByText('No matching projects found')).toBeInTheDocument();
 
     await user.click(screen.getByRole('button', { name: 'Reset all filters' }));
-    expect(screen.getByText(/Showing/i)).toHaveTextContent('Showing 3 of 3 projects');
+    expect(screen.getByText(/Showing/i)).toHaveTextContent('Showing 4 of 4 projects');
 
     const sortSelect = screen.getByLabelText('Sort by');
     await user.selectOptions(sortSelect, 'title-asc');

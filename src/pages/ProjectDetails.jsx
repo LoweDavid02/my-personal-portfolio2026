@@ -354,9 +354,9 @@ export default function ProjectDetails() {
                 Deployment &amp; Preview Availability
               </h2>
               <p className="text-xs leading-relaxed text-text-secondary">
-                A public live deployment URL is not currently hosted for this project. Source code
-                can be inspected on GitHub, and documented system capabilities reflect verified
-                development progress without estimated production metrics.
+                {project.deploymentPlatform
+                  ? `Deployed on ${project.deploymentPlatform}; the public preview URL has not yet been linked on this page.`
+                  : 'A public live deployment URL is not currently hosted for this project. Source code can be inspected on GitHub, and documented system capabilities reflect verified development progress without estimated production metrics.'}
               </p>
             </div>
           </div>

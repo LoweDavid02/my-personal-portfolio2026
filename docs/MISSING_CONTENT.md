@@ -18,6 +18,11 @@ The portfolio strictly avoids fabricating metrics, employment history, live link
 - [ ] **OpenDoor Mobile Application**
   - [ ] Expo preview / APK / Store link (`links.demo`), if shared publicly
   - [ ] Additional mobile screenshots (booking creation form, notifications/detail modal)
+- [ ] **BitForge IT Services (Startup Project)**
+  - [x] Public Render live URL (`https://bitforge-it-services-management.onrender.com`)
+  - [ ] GitHub repository link (`links.github`), if public
+  - [ ] Additional screenshots (Services, Portfolio, Team, Book Now views)
+  - [ ] Launch date (`startedAt`) and specific role details (`role`)
 - [ ] **Additional Standalone Projects**
   - [ ] Add verified individual projects for `Frontend Development`, `Backend & APIs`, `UI/UX Design`, or `Academic Projects` categories if separate repositories/builds exist outside the three documented systems.
 

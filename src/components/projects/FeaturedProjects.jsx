@@ -23,7 +23,7 @@ export function FeaturedProjects() {
           </Button>
         }
       />
-      <ProjectGrid projects={featured} columns={3} />
+      <ProjectGrid projects={featured} columns={featured.length === 4 ? 2 : 3} />
     </section>
   );
 }

@@ -58,15 +58,15 @@ test.describe('Portfolio E2E Verification', () => {
 
     // Refresh retains URL filter and back navigation works
     await page.reload();
-    await expect(page.getByText('Showing 2 of 3 projects')).toBeVisible();
+    await expect(page.getByText('Showing 3 of 4 projects')).toBeVisible();
 
     await page.getByRole('button', { name: 'PostgreSQL' }).click();
     await expect(page).toHaveURL(/tech=postgresql/);
-    await expect(page.getByText('Showing 1 of 3 projects')).toBeVisible();
+    await expect(page.getByText('Showing 1 of 4 projects')).toBeVisible();
 
     await page.goBack();
     await expect(page).toHaveURL(/\/projects\?category=full-stack-web$/);
-    await expect(page.getByText('Showing 2 of 3 projects')).toBeVisible();
+    await expect(page.getByText('Showing 3 of 4 projects')).toBeVisible();
 
     // Navigate to case study and inspect screenshot modal
     await page
@@ -109,6 +109,7 @@ test.describe('Portfolio E2E Verification', () => {
       '/projects/barangay-ticketing-system',
       '/projects/opendoor-consultation-booking-system',
       '/projects/opendoor-mobile-application',
+      '/projects/bitforge-it-services',
     ];
 
     for (const route of routesWithImages) {
@@ -121,6 +122,13 @@ test.describe('Portfolio E2E Verification', () => {
       expect(brokenImages, `Broken images on ${route}`).toEqual([]);
     }
 
+    // Verify BitForge live Render URL renders on case study page
+    await page.goto('/projects/bitforge-it-services');
+    await expect(page.getByRole('link', { name: 'Live Demo' })).toHaveAttribute(
+      'href',
+      'https://bitforge-it-services-management.onrender.com'
+    );
+
     // Fragment navigation to #skills
     await page.goto('/about#skills');
     await expect(page.getByRole('heading', { name: 'Technical Skills' })).toBeInViewport();
@@ -129,7 +137,7 @@ test.describe('Portfolio E2E Verification', () => {
     await page.goto('/projects?category=frontend');
     await expect(page.getByText('No standalone Frontend Development entries yet')).toBeVisible();
     await page.getByRole('button', { name: 'Reset all filters' }).click();
-    await expect(page.getByText('Showing 3 of 3 projects')).toBeVisible();
+    await expect(page.getByText('Showing 4 of 4 projects')).toBeVisible();
 
     // Unknown slug and 404 route handling
     await page.goto('/projects/unknown-project-slug');
