@@ -2,10 +2,52 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Full-Stack Developer & Laravel Specialist - Building immersive web applications" />
-    <title>Lowe David - Full-Stack Developer Portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
+    <title>Lowe David C. Tubat — Full-Stack Web Developer</title>
+    <meta
+      name="description"
+      content="Professional portfolio of Lowe David C. Tubat, Full-Stack Web Developer specializing in React, Laravel, PostgreSQL, MySQL, and React Native."
+    />
+    <meta name="theme-color" content="#0B0F14" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Lowe David C. Tubat — Full-Stack Web Developer" />
+    <meta
+      property="og:description"
+      content="Explore full-stack web applications, mobile projects, technical case studies, skills, and resume for Lowe David C. Tubat."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Lowe David C. Tubat — Full-Stack Web Developer" />
+    <meta
+      name="twitter:description"
+      content="Full-Stack Web Developer building responsive web applications, RESTful APIs, and cross-platform mobile solutions."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (function () {
+        try {
+          var key = 'ld-portfolio-theme';
+          var stored = window.localStorage.getItem(key);
+          var pref =
+            stored === 'light' || stored === 'dark' || stored === 'system' ? stored : 'system';
+          var systemDark =
+            window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var resolved = pref === 'system' ? (systemDark ? 'dark' : 'light') : pref;
+          var root = document.documentElement;
+          root.classList.toggle('dark', resolved === 'dark');
+          root.dataset.theme = resolved;
+          root.dataset.themePreference = pref;
+          root.style.colorScheme = resolved;
+        } catch (e) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

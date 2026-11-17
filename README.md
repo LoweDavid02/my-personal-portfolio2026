@@ -1,241 +1,171 @@
-# 🚀 Full-Stack Developer Portfolio
+# Lowe David C. Tubat — Full-Stack Web Developer Portfolio
 
-A premium, modern, and interactive portfolio website built with React.js and Tailwind CSS. Features a cyberpunk-meets-editorial design with dark theme, animated gradients, glassmorphism effects, and smooth scroll animations.
+A modern minimalist developer portfolio built with React, Vite, Tailwind CSS, React Router, and Motion. Designed around a persistent collapsible sidebar application shell, hierarchical navigation, synchronized URL-driven project filtering, and dedicated technical case studies.
 
-## 🌐 Live Demo
+## Key Features
 
-**[View Live Portfolio](https://lowedavid02.github.io/my-personal-portfolio2026/)**
+- **Collapsible Sidebar Application Shell**: Persistent `256px` / `72px` desktop sidebar with local storage preference persistence, keyboard-accessible accordion navigation groups, collapsed hover/focus tooltips, and active route synchronization.
+- **Accessible Mobile Drawer**: Off-canvas navigation drawer below `768px` with backdrop dismissal, `Escape` key handling, focus trapping, body scroll locking, and automatic closing on navigation.
+- **Categorized Project Directory**: Centralized project dataset supporting primary category tabs, technology filter chips, real-time search, multi-option sorting, URL query parameter synchronization (`/projects?category=...&tech=...&sort=...`), and helpful empty states.
+- **Project Case Studies**: Dynamic `/projects/:slug` pages covering problem statements, solutions, system architecture layers, features, challenges, screenshot galleries with lightbox inspection, and related projects.
+- **Theme System**: Light, Dark, and System theme detection with zero-flash initial load script and local storage persistence.
+- **Resume & Contact Pages**: Verified resume PDF overview, inline document preview, direct PDF download/open controls (`public/resume/developer-resume.pdf`), verified social links, and `mailto:` email composer.
+- **Vercel-Ready SPA Configuration**: Includes `vercel.json` fallback rewrites for client-side routes, `robots.txt`, `sitemap.xml`, and route-based code splitting via `React.lazy`.
 
-## ✨ Features
+## Tech Stack
 
-### Design & Aesthetics
-- 🎨 **Dark Cyberpunk Theme** - Deep space dark background with electric cyan and violet accents
-- 🌊 **Animated Gradient Mesh** - Slow-moving background gradients
-- 💎 **Glassmorphism Effects** - Frosted glass cards with backdrop blur
-- ✨ **Neon Glow Accents** - Glowing borders and hover effects
-- 🎭 **Custom Cursor** - Interactive ring + dot cursor (desktop only)
-- 📱 **Fully Responsive** - Optimized for mobile, tablet, and desktop
+- **Frontend**: React 19, Vite 8, JavaScript (ES6+ / JSX), React Router DOM 7
+- **Styling & UI**: Tailwind CSS v4 (`@tailwindcss/vite`), CSS custom properties (design tokens), Lucide React, Motion (`motion/react`)
+- **Testing & Quality**: Vitest, React Testing Library, Playwright, ESLint, Prettier
 
-### Sections
-1. **Hero Section** - Animated typewriter effect, floating tech badges, code window mockup
-2. **About Section** - Profile showcase with animated stats counters
-3. **Tech Stack** - Interactive tabs with proficiency bars for different technology categories
-4. **Projects** - 3D tilt effect cards showcasing featured work
-5. **Experience** - Animated timeline with alternating layout
-6. **Contact** - Glassmorphism contact form with floating labels
-7. **Footer** - Minimal design with back-to-top functionality
-
-### Animations & Interactions
-- 🎬 Scroll-triggered fade-in animations using Framer Motion
-- ⌨️ Typewriter effect for role cycling
-- 📊 Animated counter for statistics
-- 🎴 3D parallax tilt effect on project cards
-- 🔄 Smooth scroll behavior with section anchors
-- 💫 Hover effects on all interactive elements
-
-## 🛠️ Tech Stack
-
-### Frontend
-- **React.js** - UI library
-- **Tailwind CSS** - Utility-first CSS framework
-- **Framer Motion** - Animation library
-- **React Type Animation** - Typewriter effects
-- **React Intersection Observer** - Scroll animations
-- **Lucide React** - Icon library
-
-### Build Tools
-- **Vite** - Fast build tool and dev server
-- **PostCSS** - CSS processing
-- **ESLint** - Code linting
-
-### Deployment
-- **GitHub Pages** - Static site hosting
-- **gh-pages** - Deployment automation
-
-## 📦 Installation & Setup
+## Getting Started
 
 ### Prerequisites
-- Node.js (v16 or higher)
-- npm or yarn
 
-### Clone the Repository
-```bash
-git clone git@github.com:LoweDavid02/my-personal-portfolio2026.git
-cd my-personal-portfolio2026
-```
+- Node.js 20+ (tested on Node 24)
+- npm 10+
 
-### Install Dependencies
+### Installation
+
 ```bash
 npm install
 ```
 
-### Run Development Server
+### Development Server
+
 ```bash
 npm run dev
 ```
-The site will be available at `http://localhost:5173`
 
-### Build for Production
+Open the local URL printed by Vite (typically `http://localhost:5173`).
+
+### Production Build & Preview
+
 ```bash
 npm run build
-```
-
-### Preview Production Build
-```bash
 npm run preview
 ```
 
-### Deploy to GitHub Pages
+### Linting, Formatting & Tests
+
 ```bash
-npm run deploy
+# Run ESLint
+npm run lint
+
+# Check code formatting
+npm run format:check
+
+# Run unit and component tests (Vitest + React Testing Library)
+npm test
+
+# Run Playwright E2E tests against production preview (build first)
+npm run build
+npm run test:e2e
 ```
 
-## 🎨 Customization Guide
+## Project Structure
 
-### Update Personal Information
-
-1. **Hero Section** (`src/components/Hero.jsx`)
-   - Update name, roles, and bio
-   - Change social media links
-   - Modify tech badges
-
-2. **About Section** (`src/components/About.jsx`)
-   - Update bio text
-   - Modify statistics (years, projects, platforms)
-
-3. **Tech Stack** (`src/components/TechStack.jsx`)
-   - Add/remove technologies
-   - Update proficiency levels
-   - Modify tech categories
-
-4. **Projects** (`src/components/Projects.jsx`)
-   - Add your projects with descriptions
-   - Update GitHub and demo links
-   - Modify tech tags
-
-5. **Experience** (`src/components/Experience.jsx`)
-   - Update work experience
-   - Modify job responsibilities
-   - Change company names and dates
-
-6. **Contact** (`src/components/Contact.jsx`)
-   - Update email address
-   - Change social media links
-   - Connect form to backend (optional)
-
-### Update Colors
-
-Edit `tailwind.config.js` and `src/index.css` to change the color scheme:
-
-```javascript
-colors: {
-  'bg-primary': '#0a0a0f',      // Main background
-  'accent-cyan': '#00f5ff',      // Primary accent
-  'accent-violet': '#7c3aed',    // Secondary accent
-  // ... more colors
-}
-```
-
-### Update Fonts
-
-Fonts are loaded from Google Fonts in `index.html`. To change fonts:
-1. Update the Google Fonts link
-2. Modify font families in `tailwind.config.js`
-
-### Add Your CV
-
-Replace `public/cv.pdf` with your actual CV file.
-
-## 📁 Project Structure
-
-```
-my-personal-portfolio2026/
+```text
+my-personal-portfolio/
 ├── public/
-│   ├── cv.pdf              # Your CV file
-│   ├── favicon.svg         # Site favicon
-│   └── icons.svg           # SVG icons
+│   ├── images/
+│   │   ├── profile/            # Profile portraits & logo assets
+│   │   └── projects/           # Real project screenshots
+│   ├── resume/
+│   │   └── developer-resume.pdf
+│   ├── favicon.svg
+│   ├── robots.txt
+│   └── sitemap.xml
 ├── src/
+│   ├── app/
+│   │   ├── App.jsx             # Root provider & Router setup
+│   │   └── router.jsx          # Lazy-loaded route definitions
 │   ├── components/
-│   │   ├── About.jsx       # About section
-│   │   ├── Contact.jsx     # Contact section
-│   │   ├── CustomCursor.jsx # Custom cursor
-│   │   ├── Experience.jsx  # Experience timeline
-│   │   ├── Footer.jsx      # Footer
-│   │   ├── Hero.jsx        # Hero section
-│   │   ├── Navbar.jsx      # Navigation bar
-│   │   ├── Projects.jsx    # Projects showcase
-│   │   └── TechStack.jsx   # Tech stack tabs
-│   ├── App.jsx             # Main app component
-│   ├── index.css           # Global styles
-│   └── main.jsx            # App entry point
-├── index.html              # HTML template
-├── package.json            # Dependencies
-├── tailwind.config.js      # Tailwind configuration
-├── vite.config.js          # Vite configuration
-└── README.md               # This file
+│   │   ├── layout/             # ContentHeader, Breadcrumbs, MainContainer, Footer
+│   │   ├── projects/           # ProjectCard, Grid, Search, Filters, Sort, Gallery
+│   │   ├── sections/           # Homepage sections (Hero, Expertise, Approach, CTA)
+│   │   ├── sidebar/            # Desktop Sidebar, NavGroups, Items, Mobile Drawer
+│   │   └── ui/                 # Reusable Button, Card, Badge, Dialog, ThemeToggle
+│   ├── config/
+│   │   ├── navigation.js       # Sidebar hierarchy & breadcrumb builder
+│   │   └── site.js             # Owner identity, contact info & verified external links
+│   ├── context/
+│   │   ├── SidebarProvider.jsx # Desktop collapse, accordion & mobile drawer state
+│   │   └── ThemeProvider.jsx   # Light/Dark/System theme state
+│   ├── data/
+│   │   ├── categories.js       # Primary project categories
+│   │   ├── experience.js       # Experience timeline & certifications
+│   │   ├── projects.js         # Centralized project & case study records
+│   │   └── skills.js           # Grouped technical skills & education records
+│   ├── hooks/                  # useSidebar, useTheme, usePageMeta
+│   ├── layouts/
+│   │   └── AppLayout.jsx       # Sidebar shell + main content region
+│   ├── pages/                  # Home, About, Projects, ProjectDetails, Experience, Resume, Contact, NotFound
+│   ├── styles/
+│   │   └── index.css           # Tailwind v4 setup & Light/Dark theme CSS tokens
+│   ├── utils/                  # assetUrl, storage, projectFilters, projectSorting
+│   └── main.jsx
+├── tests/
+│   ├── unit/                   # Vitest + React Testing Library suites
+│   ├── e2e/                    # Playwright browser tests
+│   └── setup.js
+├── docs/
+│   └── MISSING_CONTENT.md      # Pending personal content & asset verification checklist
+├── .env.example
+├── vercel.json
+├── vite.config.js
+├── vitest.config.js
+└── playwright.config.js
 ```
 
-## 🚀 Deployment
+## Content & Customization Guide
 
-### GitHub Pages (Automated)
+### Adding a New Project
 
-The project is configured for automatic deployment to GitHub Pages:
+1. Place real project screenshots inside `public/images/projects/`.
+2. Open `src/data/projects.js` and append a new project object to the `PROJECTS` array with a unique `id`, unique `slug`, one primary `category` ID from `src/data/categories.js`, `technologies`, `links`, and optional `caseStudy` details.
+3. The project directory (`/projects`), featured section (`featured: true`), technology filters, related projects, and dynamic route (`/projects/<slug>`) update automatically.
+4. Optionally add `/projects/<slug>` to `public/sitemap.xml`.
 
-```bash
-npm run deploy
-```
+### Adding a Project Category
 
-This will:
-1. Build the production version
-2. Deploy to the `gh-pages` branch
-3. Make it available at `https://yourusername.github.io/my-personal-portfolio2026/`
+1. Open `src/data/categories.js` and add a new entry (`id`, `slug`, `label`, `shortLabel`, `description`, `iconName`).
+2. Verify `iconName` is registered in `src/components/ui/NavIcon.jsx`.
+3. Sidebar navigation (`src/config/navigation.js`) and project filter tabs (`src/components/projects/ProjectCategoryFilter.jsx`) automatically reflect the new category.
 
-### Manual Deployment
+### Updating Personal Information & External Links
 
-You can also deploy the `dist` folder to any static hosting service:
-- Netlify
-- Vercel
-- Cloudflare Pages
-- AWS S3
-- Firebase Hosting
+Edit `src/config/site.js` to update:
 
-## 🎯 Performance
+- Name, role, headline, location, and portrait image paths (`SITE_CONFIG.owner`)
+- Email and phone details (`SITE_CONFIG.contact`)
+- GitHub, LinkedIn, Facebook, and Instagram URLs (`SITE_CONFIG.links`)
+- Development methodology steps (`SITE_CONFIG.methodology`)
 
-- ⚡ Fast initial load with code splitting
-- 🎨 Optimized CSS with Tailwind's purge
-- 📦 Minified and compressed assets
-- 🖼️ Lazy loading for images
-- 🔄 Smooth 60fps animations
+Edit `src/data/skills.js` and `src/data/experience.js` to update technical skills, education, timeline entries, or certifications.
 
-## 📱 Browser Support
+### Adding Screenshots
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
+1. Save screenshots as PNG/WebP/JPG files inside `public/images/projects/`.
+2. Reference them relative to `public/` (e.g., `images/projects/my-screenshot.png`) in `coverImage` and `gallery` items inside `src/data/projects.js`.
+3. Always provide descriptive `alt` text and captions.
 
-## 📝 License
+### Updating the Resume / CV
 
-This project is open source and available under the [MIT License](LICENSE).
+1. Replace `public/resume/developer-resume.pdf` with your updated PDF file.
+2. Update `SITE_CONFIG.resume.lastUpdated` and `downloadFilename` in `src/config/site.js` if desired.
+3. Update the summary card fields on `src/pages/Resume.jsx` if education or contact details change.
 
-## 🤝 Contributing
+## Deployment (Vercel)
 
-Contributions, issues, and feature requests are welcome!
+This repository is preconfigured for static SPA deployment on Vercel:
 
-## 👨‍💻 Author
+- `vite.config.js` defaults `base` to `'/'`.
+- `vercel.json` rewrites client-side routes to `/index.html` so deep links such as `/projects/barangay-ticketing-system` and `/about` load cleanly on direct refresh.
+- Copy `.env.example` to `.env` (or configure `VITE_SITE_URL` in Vercel Project Settings) if you want canonical `<link rel="canonical">` tags emitted for your production domain.
 
-**Lowe David**
-- GitHub: [@LoweDavid02](https://github.com/LoweDavid02)
-- Portfolio: [Live Demo](https://lowedavid02.github.io/my-personal-portfolio2026/)
+If deploying to a subpath host such as GitHub Pages, set `VITE_BASE_PATH=/my-personal-portfolio2026/` before building.
 
-## 🙏 Acknowledgments
+## Pending Content Checklist
 
-- Design inspiration from modern developer portfolios
-- Icons from [Lucide React](https://lucide.dev/)
-- Fonts from [Google Fonts](https://fonts.google.com/)
-- Animations powered by [Framer Motion](https://www.framer.com/motion/)
-
----
-
-⭐ If you like this portfolio, please give it a star on GitHub!
+See [docs/MISSING_CONTENT.md](docs/MISSING_CONTENT.md) for personal assets, email verification notes, live demo URLs, and optional certifications awaiting confirmation.
